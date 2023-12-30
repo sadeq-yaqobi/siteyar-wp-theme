@@ -4099,6 +4099,9 @@ li.login-attri .account-drop a {
 /*===================================================
  Homes Banner
 ==================================================*/
+.hero-header-image{
+    background:url(assets/img/banner-2.jpg) no-repeat;
+}
 .hero_banner {
     padding:80px 0;
     display: flex;
