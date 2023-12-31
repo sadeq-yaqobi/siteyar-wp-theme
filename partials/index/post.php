@@ -32,11 +32,11 @@
                             <div class="pic">
                                 <div class="topic_level bg-info text-white">سطح : متوسط</div>
                                 <div class="topic_cat bg-warning text-white">جاوااسکریپت</div>
-                                <a class="pic-main" href="#"
+                                <a class="pic-main" href="http://7learn-wp.local/9-step-to-learn-javascript/"
                                    style="background-image:url(<?php echo get_template_directory_uri() . '/assets/img/course-7.jpg' ?>);"></a>
                             </div>
                             <div class="edu_data singles_items_border_bottom">
-                                <h4 class="title"><a href="single.html">پلاگین نویسی وردپرس</a></h4>
+                                <h4 class="title"><a href="http://7learn-wp.local/9-step-to-learn-javascript/">9 قدم در یادگیری جاوا اسکریپت</a></h4>
                                 <ul class="meta d-flex mt-4">
                                     <li class="d-flex align-items-center"></i>وحید صالحی</li>
                                     <li class="video d-flex align-items-center"><i class="ti-video-clapper"></i>ویدئو

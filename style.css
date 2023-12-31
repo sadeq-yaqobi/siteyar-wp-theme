@@ -8971,6 +8971,10 @@ footer.skin-dark-footer ul.footer-bottom-social li a:hover, footer.skin-dark-foo
     color:#4a5682;
     border: 1px solid #d9dde8;
 }
+.dark-footer .other-store-app {
+    color:#ffffff;
+    border: 1px solid #353d56;
+}
 /*------- Footer Top -------------*/
 .foot-news {
     display: flex;
