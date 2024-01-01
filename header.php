@@ -8,10 +8,10 @@
     <title>LearnUp - قالب HTML دوره آنلاین و آموزش</title>
 
     <!-- Custom CSS -->
-    <link href="<?php echo get_stylesheet_directory_uri() . '/style.css'?>" rel="stylesheet">
+<!--    <link href="--><?php //echo get_stylesheet_directory_uri() . '/style.css'?><!--" rel="stylesheet">-->
 
     <!-- Custom Color Option -->
-    <link href="<?php echo get_stylesheet_directory_uri().'/assets/css/colors.css'?>" rel="stylesheet">
+<!--    <link href="--><?php //echo get_stylesheet_directory_uri().'/assets/css/colors.css'?><!--" rel="stylesheet">-->
 
     <!-- WordPress function for essential head elements -->
     <?php wp_head(); ?>
