@@ -227,14 +227,14 @@
 <!-- ============================================================== -->
 <!-- All Jquery -->
 <!-- ============================================================== -->
-<script src="<?php echo get_template_directory_uri() . '/assets/js/jquery.min.js' ?>"></script>
-<script src="<?php echo get_template_directory_uri() . '/assets/js/popper.min.js' ?>"></script>
-<script src="<?php echo get_template_directory_uri() . '/assets/js/bootstrap.min.js' ?>"></script>
-<script src="<?php echo get_template_directory_uri() . '/assets/js/select2.min.js' ?>"></script>
-<script src="<?php echo get_template_directory_uri() . '/assets/js/slick.js' ?>"></script>
-<script src="<?php echo get_template_directory_uri() . '/assets/js/jquery.counterup.min.js' ?>"></script>
-<script src="<?php echo get_template_directory_uri() . '/assets/js/counterup.min.js' ?>"></script>
-<script src="<?php echo get_template_directory_uri() . '/assets/js/custom.js' ?>"></script>
+<!--<script src="--><?php //echo get_template_directory_uri() . '/assets/js/jquery.min.js' ?><!--"></script>-->
+<!--<script src="--><?php //echo get_template_directory_uri() . '/assets/js/popper.min.js' ?><!--"></script>-->
+<!--<script src="--><?php //echo get_template_directory_uri() . '/assets/js/bootstrap.min.js' ?><!--"></script>-->
+<!--<script src="--><?php //echo get_template_directory_uri() . '/assets/js/select2.min.js' ?><!--"></script>-->
+<!--<script src="--><?php //echo get_template_directory_uri() . '/assets/js/slick.js' ?><!--"></script>-->
+<!--<script src="--><?php //echo get_template_directory_uri() . '/assets/js/jquery.counterup.min.js' ?><!--"></script>-->
+<!--<script src="--><?php //echo get_template_directory_uri() . '/assets/js/counterup.min.js' ?><!--"></script>-->
+<!--<script src="--><?php //echo get_template_directory_uri() . '/assets/js/custom.js' ?><!--"></script>-->
 <!-- ============================================================== -->
 <!-- This page plugins -->
 <!-- ============================================================== -->

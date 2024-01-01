@@ -1,27 +1,27 @@
-$(function() {
+jQuery(function() {
     "use strict";
 
 	//Loader	
-	$(function preloaderLoad() {
-        if($('.preloader').length){
-            $('.preloader').delay(200).fadeOut(300);
+	jQuery(function preloaderLoad() {
+        if(jQuery('.preloader').length){
+            jQuery('.preloader').delay(200).fadeOut(300);
         }
-        $(".preloader_disabler").on('click', function() {
-            $("#preloader").hide();
+        jQuery(".preloader_disabler").on('click', function() {
+            jQuery("#preloader").hide();
         });
     });
 	
 	// Count
-	$(window).on('load', function() {
-		$('.bc_sec_last li h4').counterUp({
+	jQuery(window).on('load', function() {
+		jQuery('.bc_sec_last li h4').counterUp({
 			delay: 100,
 			time: 800
 		});
 	});
 	
 	// Count
-	$(window).on('load', function() {
-		$('.counts').counterUp({
+	jQuery(window).on('load', function() {
+		jQuery('.counts').counterUp({
 			delay: 100,
 			time: 800
 		});
@@ -168,38 +168,38 @@ $(function() {
 			})
 		}
 	}
-	(jQuery, window, document), $(document).ready(function() {
-		$("#navigation").navigation()
+	(jQuery, window, document), jQuery(document).ready(function() {
+		jQuery("#navigation").navigation()
 	});	
 	
 	// Tooltip
-	$('[data-toggle="tooltip"]').tooltip();
+	jQuery('[data-toggle="tooltip"]').tooltip();
 	
 	// Bottom To Top Scroll Script
-	$(window).on('scroll', function() {
-		var height = $(window).scrollTop();
+	jQuery(window).on('scroll', function() {
+		var height = jQuery(window).scrollTop();
 		if (height > 100) {
-			$('#back2Top').fadeIn();
+			jQuery('#back2Top').fadeIn();
 		} else {
-			$('#back2Top').fadeOut();
+			jQuery('#back2Top').fadeOut();
 		}
 	});
 	
-	$("#back2Top").on('click', function(event) {
+	jQuery("#back2Top").on('click', function(event) {
 		event.preventDefault();
-		$("html, body").animate({ scrollTop: 0 }, "slow");
+		jQuery("html, body").animate({ scrollTop: 0 }, "slow");
 		return false;
 	});
 	
 	
 	// Script For Fix Header on Scroll
-	$(window).on('scroll', function() {    
-		var scroll = $(window).scrollTop();
+	jQuery(window).on('scroll', function() {    
+		var scroll = jQuery(window).scrollTop();
 
 		if (scroll >= 50) {
-			$(".header").addClass("header-fixed");
+			jQuery(".header").addClass("header-fixed");
 		} else {
-			$(".header").removeClass("header-fixed");
+			jQuery(".header").removeClass("header-fixed");
 		}
 	});
 	
@@ -207,7 +207,7 @@ $(function() {
 	
 	// Brand Slide
 	// smart_textimonials_style
-	$('#brand-slide').slick({
+	jQuery('#brand-slide').slick({
 	  slidesToShow:5,
 	  arrows: false,
 	  autoplay:true,
@@ -238,7 +238,7 @@ $(function() {
 	});
 	
 	// smart_textimonials_style
-	$('#reviews-slide').slick({
+	jQuery('#reviews-slide').slick({
 	  slidesToShow:3,
 	  arrows: false,
 	  autoplay:true,
@@ -270,7 +270,7 @@ $(function() {
 
 	
 	// smart_textimonials_style
-	$('#testimonials_style').slick({
+	jQuery('#testimonials_style').slick({
 	  slidesToShow:1,
 	  arrows: true,
 	  autoplay:true,
@@ -294,7 +294,7 @@ $(function() {
 	});
 	
 	// smart_textimonials_style
-	$('#four_slide').slick({
+	jQuery('#four_slide').slick({
 	  slidesToShow:4,
 	  arrows: true,
 	  autoplay:true,
@@ -325,7 +325,7 @@ $(function() {
 	});
 	
 	// smart_textimonials_style
-	$('#three_slide').slick({
+	jQuery('#three_slide').slick({
 	  slidesToShow:3,
 	  arrows:true,
 	  autoplay:false,
@@ -348,13 +348,13 @@ $(function() {
 	  ]
 	});
 		function rtl_slick(){
-	if ($('body').hasClass("rtl")) {
+	if (jQuery('body').hasClass("rtl")) {
 	   return true;
 	} else {
 	   return false;
 	}};
 	// Slide For No Arrow Four
-	$('.four_slide').slick({
+	jQuery('.four_slide').slick({
 	  slidesToShow:4,
 	  arrows: true,
 	  autoplay:true,
@@ -385,7 +385,7 @@ $(function() {
 	});
 	
 	// Slide For No Arrow Three
-	$('.three_slide').slick({
+	jQuery('.three_slide').slick({
 	  slidesToShow:3,
 	  arrows:true,
 	  autoplay:true,
@@ -409,7 +409,7 @@ $(function() {
 	});
 	
 	// Slide For dots Four
-	$('.four_slide-dots').slick({
+	jQuery('.four_slide-dots').slick({
 	  slidesToShow:4,
 	  arrows: true,
 	  autoplay:true,
@@ -440,7 +440,7 @@ $(function() {
 	});
 	
 	// Slide For dots Three
-	$('.three_slide-dots').slick({
+	jQuery('.three_slide-dots').slick({
 	  slidesToShow:3,
 	  arrows:true,
 	  autoplay:true,
@@ -464,7 +464,7 @@ $(function() {
 	});
 	
 	// Slide For dots Three
-	$('#reviews-login').slick({
+	jQuery('#reviews-login').slick({
 	  slidesToShow:1,
 	  arrows:false,
 	  autoplay:true,
@@ -489,13 +489,13 @@ $(function() {
 		
 	
 	// Select Job category
-	$('#c-category').select2({
+	jQuery('#c-category').select2({
 		placeholder: "دسته بندی",
 		allowClear: true
 	});
 	
 	// country
-	$('#country').select2({
+	jQuery('#country').select2({
 		placeholder: "کشور",
 		allowClear: true
 	});
