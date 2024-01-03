@@ -190,10 +190,10 @@ jQuery(function() {
 		jQuery("html, body").animate({ scrollTop: 0 }, "slow");
 		return false;
 	});
-	
-	
+
+
 	// Script For Fix Header on Scroll
-	jQuery(window).on('scroll', function() {    
+	jQuery(window).on('scroll', function() {
 		var scroll = jQuery(window).scrollTop();
 
 		if (scroll >= 50) {
