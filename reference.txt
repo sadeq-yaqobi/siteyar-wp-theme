@@ -1,0 +1,8 @@
+# Git repo of a custom WordPress nav walker class
+https://github.com/wp-bootstrap/wp-bootstrap-navwalker
+
+# How to use nav walker with BOOTSTRAP 4
+https://www.yogihosting.com/integrate-bootstrap-menu-wordpress-website/
+
+How to use nav walker with BOOTSTRAP 5
+https://wpknifer.com/wordpress-navigation-menu/
