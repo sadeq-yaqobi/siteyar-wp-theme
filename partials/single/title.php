@@ -4,7 +4,7 @@
         <div class="row">
             <div class="col-lg-12 col-md-12">
                 <div class="breadcrumbs-wrap">
-                    <h1 class="breadcrumb-title">لزوم یادگیری زبان در دنیای امروزی!</h1>
+                    <h1 class="breadcrumb-title"><?php the_title();?></h1>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="#">خانه</a></li>
