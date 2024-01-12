@@ -49,8 +49,19 @@ $the_query = new WP_Query($args);
                     <h4 class="title"><a href="<?php the_permalink(); ?>"><?php the_title() ?></a></h4>
                     <ul class="meta d-flex mt-4">
                         <li class="d-flex align-items-center"><?php the_author() ?></li>
-                        <li class="video d-flex align-items-center"><i class="ti-video-clapper"></i>ویدئو
-                        </li>
+                        <?php
+                        $post_types = get_post_meta(get_the_ID(), '_sy_post_types', true);
+                        if (!empty($post_types)) {
+                            switch ($post_types) {
+                                case 1:
+                                    echo '<li class="video d-flex align-items-center"><i class="ti-video-clapper"></i>ویدئو</li>';
+                                    break;
+                                case 2:
+                                    echo '<li class="video d-flex align-items-center"><i class="ti-video-clapper"></i>مقاله</li>';
+                                    break;
+                            }
+                        }
+                        ?>
                         <li class="video d-flex align-items-center"><i class="ti-eye"></i>321</li>
                         <li class="d-flex align-items-center"><i
                                     class="ti-calendar theme-cl"></i><?php the_date('j F Y') ?></li>

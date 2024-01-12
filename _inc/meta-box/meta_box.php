@@ -21,11 +21,15 @@ function sy_more_setting_html($post)
     // to create a nonce field to check later for category part
     wp_nonce_field('post_cat_nonce', 'post_cat_nonces');
 
-    /*level part
-     Retrieve the current level of the _sy_post_level key from post meta*/
+    // to create a nonce field to check later for type part
+    wp_nonce_field('post_types_nonce', 'post_types_nonces');
+
+
+//     Retrieve the current level of the _sy_post_level key from post meta
     $post_level = get_post_meta($post->ID, '_sy_post_level', true)
     ?>
-    <div style="display: flex; justify-content: space-around">
+    <div style="display: flex; justify-content: space-around;align-items:center;background-color: #F0F0F1;height: 80px;border-radius: 5px">
+        <!-- level part-->
         <div>
             <label for="post-level">سطح مقاله</label>
             <select name="post_level" id="post-level">
@@ -45,10 +49,25 @@ function sy_more_setting_html($post)
                 'name' => 'post_cat',
                 'id' => 'post-category',
                 'selected' => $category_id,
-                'show_count'        => 1,
+                'show_count' => 1,
             ]);
             ?>
 
+        </div>
+
+        <!-- type of content-->
+        <div>
+            <?php
+
+            // Retrieve the current type of the _sy_post_types key from post meta*/
+            $post_types = get_post_meta($post->ID, '_sy_post_types', true);
+
+            ?>
+            <label for="post-type">نوع محتوا</label>
+            <select name="post_types" id="post-type">
+                <option value="1"<?php selected($post_types, 1) ?>>ویدئو</option>
+                <option value="2"<?php selected($post_types, 2) ?>>مقاله</option>
+            </select>
         </div>
     </div>
     <?php
@@ -56,6 +75,7 @@ function sy_more_setting_html($post)
 
 function sy_save_meta_box($post_id)
 {
+
     // Name of the nonce field
     $post_level_nonce_name = $_POST['post_level_nonces'] ?? '';
     $post_level_nonce_action = 'post_level_nonce';
@@ -63,9 +83,13 @@ function sy_save_meta_box($post_id)
     $post_cat_nonce_name = $_POST['post_cat_nonces'] ?? '';
     $post_cat_nonce_action = 'post_cat_nonce';
 
+    $post_types_nonce_name = $_POST['post_types_nonces'] ?? '';
+    $post_types_nonce_action = 'post_types_nonce';
+
     // Check if the nonce is set and valid
     if ((!isset($post_level_nonce_name) || !wp_verify_nonce($post_level_nonce_name, $post_level_nonce_action))
-        && (!isset($post_cat_nonce_name) || !wp_verify_nonce($post_cat_nonce_name, $post_cat_nonce_action))) {
+        && (!isset($post_cat_nonce_name) || !wp_verify_nonce($post_cat_nonce_name, $post_cat_nonce_action))
+        && (!isset($post_types_nonce_name) || !wp_verify_nonce($post_types_nonce_name, $post_types_nonce_action))) {
         return;
     }
 
@@ -84,8 +108,10 @@ function sy_save_meta_box($post_id)
 
         $post_level = sanitize_text_field($_POST['post_level']);
         $post_cat = sanitize_text_field($_POST['post_cat']);
+        $post_types = sanitize_text_field($_POST['post_types']);
 
         update_post_meta($post_id, '_sy_post_level', $post_level);
         update_post_meta($post_id, '_sy_post_cat', $post_cat);
+        update_post_meta($post_id, '_sy_post_types', $post_types);
     }
 }
