@@ -62,7 +62,7 @@ $the_query = new WP_Query($args);
                             }
                         }
                         ?>
-                        <li class="video d-flex align-items-center"><i class="ti-eye"></i>321</li>
+                        <li class="video d-flex align-items-center"><i class="ti-eye"></i><?php echo PostView::sy_get_post_view(get_the_ID());?></li>
                         <li class="d-flex align-items-center"><i
                                     class="ti-calendar theme-cl"></i><?php the_date('j F Y') ?></li>
                     </ul>

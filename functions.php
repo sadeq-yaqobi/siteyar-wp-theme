@@ -10,3 +10,6 @@ include_once '_inc/post/post.php';
 
 // include meta box registration file
 include_once '_inc/meta-box/meta_box.php';
+
+//include post view counter class
+include_once 'helper-class/PostView.php';
