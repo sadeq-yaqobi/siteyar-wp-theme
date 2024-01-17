@@ -5,6 +5,6 @@
                 شده</a></li>
         <li><span class="icons mr-2"><i class="ti-eye"></i></span><?php echo PostView::sy_get_post_view(get_the_ID())?> بازدید</li>
         <li><span class="icons mr-2"><i class="ti-timer"></i></span><?php echo ReadingEstimateTime::sy_reading_estimate_time(get_the_content());?> دقیقه</li>
-        <li><span class="icons mr-2"><i class="ti-search"></i></span>12 ورودی از گوگل</li>
+        <li><span class="icons mr-2"><i class="ti-search"></i></span><?php echo GoogleReferer::sy_get_google_referer(get_the_ID())?> ورودی از گوگل</li>
     </ul>
 </div>

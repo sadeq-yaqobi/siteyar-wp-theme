@@ -17,5 +17,10 @@ include_once 'helper-class/PostView.php';
 //include reading estimate time class
 include_once 'helper-class/ReadingEstimateTime.php';
 
+//include google referer numbers class
+include_once 'helper-class/GoogleReferer.php';
+
+
+
 
 
