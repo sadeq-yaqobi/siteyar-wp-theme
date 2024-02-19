@@ -12014,3 +12014,12 @@ a._cr_detail_arrow {
 #profileName:hover > a .submenu-indicator-chevron{
     border-color:#000!important;
 }
+
+ul.children li{
+    margin-right: 15px;
+}
+
+span.cat-count {
+    float: left;
+    margin-left: 20px;
+}
