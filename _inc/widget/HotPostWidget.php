@@ -3,18 +3,18 @@
 /**
  * Class CatsWidget
  */
-class CatsWidget extends WP_Widget
+class HotPostWidget extends WP_Widget
 {
     /**
      * Constructs the new widget.
      *
      * @see WP_Widget::__construct()
      */
-    function __construct()
+    public function __construct()
     {
-        // Instantiate the parent object.
-        parent::__construct(false, 'دسته بندی مطالب');
+        parent::__construct(false, 'مطالب پرمخاطب');
     }
+
 
     /**
      * The widget's HTML output.
@@ -25,30 +25,42 @@ class CatsWidget extends WP_Widget
      * @see WP_Widget::widget()
      *
      */
-    function widget($args, $instance)
+    public function widget($args, $instance)
     {
         echo $args['before_widget'];
-//        echo $args['before_title'];
-//        echo 'دسته‌بندی';
-//        echo $instance['title'];
+
         if (!empty($instance['title'])) {
-            echo $args['before_title'] . apply_filters('widget_title', $instance['title']) . $args['after_title'];
+            echo $args['before_title'] . apply_filters('widget_title', $instance['title']) . $args['before_title'];
         } else {
             echo '<p class="bg-secondary text-white p-2 rounded">یک عنوان برای ویجت انتخاب نمایید</p>';
         }
-//        echo $args['after_title'];
-//        echo 'متن آزمایشی';
-
-        $cat_args = [
-            'title_li' => '', //Text to use for the list title <li> element. Pass an empty string to disable. Default 'Categories'.
-            'depth' => 1, //Category depth. Used for tab indentation. Default 0.
-            'show_count' => true, //Whether to include post counts. Accepts 0, 1, or their bool equivalents.Default 0.
-            'orderby' => 'name',
-            'echo' => false,
+        $query_args = [
+            'post_type' => 'post',
+            'post_per_page' => 5,
+            'orderby' => 'comment_count',
+            'order' => 'DESC'
         ];
-        $variable= wp_list_categories($cat_args);
-        $variable = preg_replace( '~\((\d+)\)(?=\s*+<)~', '<span class="cat-count">$1</span>', $variable );
-        echo $variable;
+        $hot_posts = new WP_Query($query_args);
+        echo '<ul>';
+        if ($hot_posts->have_posts()) {
+            while ($hot_posts->have_posts()):$hot_posts->the_post(); ?>
+                <li>
+                    <span class="left">
+                        <?php
+                        if (has_post_thumbnail()) {
+                            the_post_thumbnail('', ['class' => 'img-responsive', 'alt' => get_the_title()]);
+                        } else {
+                            echo sy_default_post_thumbnail();
+                        }
+                        ?>
+                    </span>
+                    <span class="right"><a class="feed-title" href="<?php the_permalink(); ?>"><?php the_title() ?></a><span class="post-date"><i class="ti-calendar"></i>10دقیقه پیش</span></span>
+                </li>
+            <?php
+            endwhile;
+            wp_reset_postdata();
+        }
+        echo '</ul>';
         echo $args['after_widget'];
     }
 
@@ -91,14 +103,16 @@ class CatsWidget extends WP_Widget
 
 }
 
+
 /**
  * Register the new widget.
  *
  * @see 'widgets_init'
  */
-function sy_register_category_widget()
+function sy_register_hot_post_widget()
 {
-    register_widget('CatsWidget');
+    register_widget('HotPostWidget');
 }
 
-add_action('widgets_init', 'sy_register_category_widget');
+add_action('widgets_init', 'sy_register_hot_post_widget');
+
