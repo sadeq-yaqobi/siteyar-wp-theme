@@ -1,26 +1,30 @@
 <?php
-// include assets registration
+// Include assets registration
 include_once '_inc/assets/register_assets.php';
 
-// include theme setup file
+// Include theme setup file
 include_once '_inc/theme-setup/theme_setup.php';
 
-// include file about post functionality
+// Include file about post functionality
 include_once '_inc/post/post.php';
 
-// include meta box registration file
+// Include meta box registration file
 include_once '_inc/meta-box/meta_box.php';
 
-//include post view counter class
+// Include PostView counter class
 include_once 'helper-class/PostView.php';
 
-//include reading estimate time class
+// Include ReadingEstimateTime class
 include_once 'helper-class/ReadingEstimateTime.php';
 
-//include google referer numbers class
+// Include GoogleReferer numbers class
 include_once 'helper-class/GoogleReferer.php';
 
+// Include widget file
+include_once '_inc/widget/sidebar_widget.php';
 
+// Include category widget file
+include_once '_inc/widget/CatsWidget.php';
 
-
-
+add_filter('use_block_editor_for_post', '__return_false');
+add_filter('use_widgets_block_editor', '__return_false');
