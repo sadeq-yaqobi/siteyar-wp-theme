@@ -26,5 +26,8 @@ include_once '_inc/widget/sidebar_widget.php';
 // Include category widget file
 include_once '_inc/widget/CatsWidget.php';
 
+// Include hotPost widget file
+include_once '_inc/widget/HotPostWidget.php';
+
 add_filter('use_block_editor_for_post', '__return_false');
 add_filter('use_widgets_block_editor', '__return_false');
