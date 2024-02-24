@@ -54,7 +54,7 @@ class HotPostWidget extends WP_Widget
                         }
                         ?>
                     </span>
-                    <span class="right"><a class="feed-title" href="<?php the_permalink(); ?>"><?php the_title() ?></a><span class="post-date"><i class="ti-calendar"></i>10دقیقه پیش</span></span>
+                    <span class="right"><a class="feed-title" href="<?php the_permalink(); ?>"><?php the_title() ?></a><span class="post-date"><i class="ti-calendar"></i><?php echo TimeModify::time_ago($hot_posts->post->post_date);?></span></span>
                 </li>
             <?php
             endwhile;

@@ -1,9 +1,10 @@
 <?php
-// Include assets registration
-include_once '_inc/assets/register_assets.php';
 
 // Include theme setup file
 include_once '_inc/theme-setup/theme_setup.php';
+
+// Include assets registration
+include_once '_inc/assets/register_assets.php';
 
 // Include file about post functionality
 include_once '_inc/post/post.php';
@@ -16,6 +17,9 @@ include_once 'helper-class/PostView.php';
 
 // Include ReadingEstimateTime class
 include_once 'helper-class/ReadingEstimateTime.php';
+
+// Include Time working functionality class
+include_once 'helper-class/TimeModify.php';
 
 // Include GoogleReferer numbers class
 include_once 'helper-class/GoogleReferer.php';

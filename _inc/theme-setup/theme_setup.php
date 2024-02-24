@@ -1,6 +1,8 @@
 <?php
 function theme_setup()
 {
+    date_default_timezone_set('Asia/Tehran');
+
     // to show title in all pages
     add_theme_support('title-tag');
 
