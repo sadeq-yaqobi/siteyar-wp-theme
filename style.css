@@ -7410,7 +7410,10 @@ a.btn-br-more {
     text-align: center;
     margin: 0 auto;
     width: auto;
-    display: table;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
 }
 
 .page_sidebar {
