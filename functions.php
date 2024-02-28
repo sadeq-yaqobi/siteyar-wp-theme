@@ -12,6 +12,9 @@ include_once '_inc/post/post.php';
 // Include meta box registration file
 include_once '_inc/meta-box/meta_box.php';
 
+//Include breadcrumb class
+include_once 'class/breadcrumb/Breadcrumb.php';
+
 // Include PostView counter class
 include_once 'helper-class/PostView.php';
 
