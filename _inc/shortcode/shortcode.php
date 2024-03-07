@@ -22,7 +22,7 @@ add_shortcode('video-link', 'video_link_shortcode');
 
 
 // Quotation Shortcode Function
-function quotation_shortcode($attr, $content) : string
+function quotation_shortcode($attr, $content=null) : string
 {
     // Create blockquote element with quote text and author
     return '
