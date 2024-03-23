@@ -499,5 +499,22 @@ jQuery(function() {
 		placeholder: "کشور",
 		allowClear: true
 	});
+
+	//comment reply
+	jQuery('.reply').on('click', function (e) {
+		// e.preventDefault();
+		let el = jQuery(this);
+		let commentID = el.data('comment-id');
+		let commentAuthor = el.data('comment-author');
+		let commentContent = el.data('comment-content');
+		console.log(commentID);
+		jQuery('#comment_parent').val(commentID)
+		jQuery('.reply-to').text('در پاسخ به: ' + commentAuthor);
+		jQuery('.main-comment-content').removeClass('d-none').text(commentContent);
+
+		setTimeout(function() { jQuery('.comment-textarea').focus() }, 100);
+		;
+
+	});
 	
 });
