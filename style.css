@@ -12027,3 +12027,17 @@ span.cat-count {
     float: left;
     margin-left: 20px;
 }
+
+/*modal comment form*/
+.modal-header,.modal-footer {
+    border: none;
+}
+.modal-footer .form-group{
+    display: flex;
+    justify-content: center;
+}
+
+/*comment edit*/
+.comment-edit {
+    color: #6e7c90;
+}
