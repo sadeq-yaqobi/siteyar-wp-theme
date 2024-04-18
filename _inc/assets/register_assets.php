@@ -23,7 +23,8 @@ function sy_register_assets()
     //<----- REGISTER AND ENQUEUE CSS ----->
 
     // bootstrap-4.0.0
-    wp_register_style('bootstrap-4', 'https://cdn.rtlcss.com/bootstrap/v4.0.0/css/bootstrap.min.css', '', '4.0.0');
+//    wp_register_style('bootstrap-4', 'https://cdn.rtlcss.com/bootstrap/v4.0.0/css/bootstrap.min.css', '', '4.0.0');
+    wp_register_style('bootstrap-4', get_stylesheet_directory_uri().'/assets/css/bootstrap.min.css', '', '4.0.0');
     wp_enqueue_style('bootstrap-4');
 
     // custom style - style and colors files
@@ -40,7 +41,8 @@ function sy_register_assets()
     wp_enqueue_script('popper-1');
 
     // bootstrap-4.0.0
-    wp_register_script('bootstrap-4-js', 'https://cdn.rtlcss.com/bootstrap/v4.0.0/js/bootstrap.min.js', '', '4.0.0', ['strategy' => 'async', 'in_footer' => true]);
+//    wp_register_script('bootstrap-4-js', 'https://cdn.rtlcss.com/bootstrap/v4.0.0/js/bootstrap.min.js', '', '4.0.0', ['strategy' => 'async', 'in_footer' => true]);
+    wp_register_script('bootstrap-4-js', get_template_directory_uri().'/assets/js/bootstrap.min.js', '', '4.0.0', ['strategy' => 'async', 'in_footer' => true]);
     wp_enqueue_script('bootstrap-4-js');
 
     // select2/4.0.6-rc.1
