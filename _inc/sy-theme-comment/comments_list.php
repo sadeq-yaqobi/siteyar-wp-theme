@@ -14,7 +14,7 @@ function sy_theme_comment($comment, $args)
                     <div class="comment-left-meta">
                         <h4 class="author-name"><?php echo $comment->comment_author ?><?php
                             $user_data = get_userdata($comment->user_id);
-                            if ($user_data and $user_data->roles[0]=='administrator'):?>
+                            if ($user_data and $user_data->roles[0] == 'administrator'):?>
                                 <span class="selected"><i class="fas fa-bookmark"></i></span>
                             <?php endif; ?>
                         </h4>
@@ -22,19 +22,31 @@ function sy_theme_comment($comment, $args)
                     </div>
                     <div class="comment-reply">
 
-<!--                        reply to comment by default wordPress form -->
-<!--                        <a href="#comment_box" class="reply" data-comment-id="--><?php //echo $comment->comment_ID; ?><!--" data-comment-author="--><?php //echo $comment->comment_author ?><!--" data-comment-content="--><?php //echo $comment->comment_content ?><!--"><span class="icona"><i class="ti-back-right"></i></span>پاسخ</a>-->
+                        <!--                        reply to comment by default wordPress form -->
+                        <!--                        <a href="#comment_box" class="reply" data-comment-id="-->
+                        <?php //echo $comment->comment_ID;
+                        ?><!--" data-comment-author="--><?php //echo $comment->comment_author
+                        ?><!--" data-comment-content="--><?php //echo $comment->comment_content
+                        ?><!--"><span class="icona"><i class="ti-back-right"></i></span>پاسخ</a>-->
 
-<!--                        reply  to comment by bootstrap modal -->
-                        <a href="" title="پاسخ"  class="reply" data-toggle="modal" data-target="#commentModal" data-comment-id="<?php echo $comment->comment_ID; ?>" data-comment-author="<?php echo $comment->comment_author ?>" data-comment-content="<?php echo wp_strip_all_tags($comment->comment_content) ?>"><span class="icona"><i class="ti-back-right"></i></span></a>
+                        <!--                        reply  to comment by bootstrap modal -->
+                        <a href="" title="پاسخ" class="reply" data-toggle="modal" data-target="#commentModal"
+                           data-comment-id="<?php echo $comment->comment_ID; ?>"
+                           data-comment-author="<?php echo $comment->comment_author ?>"
+                           data-comment-content="<?php echo wp_strip_all_tags($comment->comment_content) ?>"><span
+                                    class="icona"><i class="ti-back-right"></i></span></a>
                         <?php if (current_user_can('manage_options')) {
                             edit_comment_link('<span title="ویرایش"  class="icona comment-edit pl-2"><i class="ti-pencil"></i></span>');
-                        }?>
+                        } ?>
 
                     </div>
                 </div>
                 <div class="comment-text">
-                    <p><?php echo $comment->comment_content; ?></p>
+                    <?php if ($comment->comment_approved): ?>
+                        <p><?php echo $comment->comment_content; ?></p>
+                    <?php else: ?>
+                        <div class="alert alert-info">دیدگاه شما ارسال شد و بعد تایید مدیر نمایش داده می‌شود</div>
+                    <?php endif; ?>
                 </div>
             </div>
         </article>

@@ -502,7 +502,7 @@ jQuery(function() {
 
 	//comment reply
 	jQuery('.reply').on('click', function (e) {
-		e.preventDefault();
+		// e.preventDefault();
 		let el = jQuery(this);
 		let commentID = el.data('comment-id');
 		let commentAuthor = el.data('comment-author');
