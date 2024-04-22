@@ -13,7 +13,10 @@
                     } ?>
                 </div>
                 <?php get_template_part('meta-data/single/post-meta-top', 'post-meta-top') ?>
-                <?php the_content(); ?>
+                <div class="main-content">
+                    <?php the_content(); ?>
+                </div>
+
                 <?php get_template_part('meta-data/single/post-meta-bottom', 'post-meta-bottom') ?>
                 <?php get_template_part('partials/single/__main-content-article-pagination', '__main-content-article-pagination') ?>
             </div>
