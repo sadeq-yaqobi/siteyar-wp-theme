@@ -8619,8 +8619,12 @@ p.description {
     margin-bottom: 1.5rem;
 }
 
-.article_featured_image img {
+.article_featured_image img , .main-content img{
     border-radius: 6px;
+}
+.main-content img{
+    width: 100%;
+    height: auto;
 }
 
 .single_article_wrap .article_body_wrap .article_middle_info {

@@ -1,6 +1,7 @@
 <?php
 $args = [
-    'post_type' => 'post',
+//    'post_type' => ['post','tech'], //show post and custom post type both by a single query
+    'post_type' => ['post'],
     'posts_per_page' => 4
 ];
 $the_query = new WP_Query($args);
@@ -74,4 +75,4 @@ $the_query = new WP_Query($args);
 <?php else: ?>
     <div class="alert alert-info">تا کنون مطلبی منتشر نشده است</div>
 <?php endif; ?>
-
+<?php $the_query->rewind_posts();?>
