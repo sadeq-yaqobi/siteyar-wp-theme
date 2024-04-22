@@ -70,7 +70,7 @@ function sy_register_tech_taxonomy()
     );
 
     $args = array(
-        'hierarchical'      => false, //set false if you want to show by input
+        'hierarchical'      => false,
         'labels'            => $labels,
         'show_ui'           => true,
         'show_admin_column' => true,
@@ -78,7 +78,7 @@ function sy_register_tech_taxonomy()
         'rewrite'           => array( 'slug' => 'tech' ),
     );
 
-    register_taxonomy( 'tech', array( 'tech' ), $args );
+    register_taxonomy( 'cat-tech', array( 'tech' ), $args );
 
     unset( $args );
     unset( $labels );
@@ -98,7 +98,7 @@ function sy_register_tech_taxonomy()
     );
 
     $args = array(
-        'hierarchical'      => false,
+        'hierarchical'      => false, //set false if you want to show by input
         'labels'            => $labels,
         'show_ui'           => true,
         'show_admin_column' => true,
@@ -106,6 +106,6 @@ function sy_register_tech_taxonomy()
         'rewrite'           => array( 'slug' => 'tags' ),
     );
 
-    register_taxonomy( 'tags', array( 'tech' ), $args );
+    register_taxonomy( 'tag-tech', array( 'tech' ), $args );
 }
 
