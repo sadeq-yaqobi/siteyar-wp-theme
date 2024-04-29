@@ -48,6 +48,9 @@ include_once '_inc/sy-theme-comment/comments_list.php';
 // include post type and taxonomy builder
 include_once '_inc/tech-custom-post-type-taxonomy/tech-custom-post-type-taxonomy.php';
 
+// include php function that handles ajax request to show the most popular posts
+include_once 'loop/index/post-most-popular-loop.php';
+
 
 add_filter('use_block_editor_for_post', '__return_false');
 add_filter('use_widgets_block_editor', '__return_false');

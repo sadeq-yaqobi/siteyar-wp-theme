@@ -4,8 +4,19 @@
 
         <div class="row justify-content-center">
             <div class="col-lg-12 col-md-12">
-                <div class="sec-heading-flex">
-                    <h2 class="pl-2">آخرین اخبار دنیای تکنولوژی</h2>
+                <div class="sec-heading2 sec-heading-flex">
+                    <div class="sec-left">
+                        <h2 class="pl-2">آخرین اخبار دنیای تکنولوژی</h2>
+                    </div>
+                    <div class="sec-right">
+                        <select id="post-tech-filter" class="form-control form-control-sm bg-light text-dark">
+                            <option value="newest">نمایش بر اساس : جدیدترین ها</option>
+                            <option value="popular">محبوب ترین ها</option>
+                            <option value="hottest">داغ ترین ها</option>
+                            <option value="video">مطالب ویدئویی</option>
+                        </select>
+                        <!-- <a href="javascript:void(0);" class="btn-br-more">همه مطالب</a> -->
+                    </div>
                 </div>
             </div>
         </div>
