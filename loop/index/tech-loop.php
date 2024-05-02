@@ -2,14 +2,9 @@
 <?php
 $args = [
     'post_type' => 'tech',
-    'posts_per_page' => 3
+    'showposts' => 3
 ];
 $the_query = new WP_Query($args);
-//echo '<pre>';
-//var_dump($the_query);
-//echo '</pre>';
-
-
 ?>
 <?php if ($the_query->have_posts()): ?>
     <?php while ($the_query->have_posts()):$the_query->the_post(); ?>
@@ -18,11 +13,8 @@ $the_query = new WP_Query($args);
         <div class="articles_grid_thumb">
             <a href="<?php the_permalink(); ?>">
                 <?php
-                if (has_post_thumbnail()) {
-                    the_post_thumbnail('', ['class' => 'img-fluid', 'alt' => get_the_title()]);
-                } else
-                    echo sy_default_post_thumbnail();
-                ?>"
+                echo sy_post_thumbnail();
+                ?>
             </a>
         </div>
 

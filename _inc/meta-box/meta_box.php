@@ -4,13 +4,13 @@ add_action('save_post', 'sy_save_meta_box');
 
 function sy_register_more_setting()
 {
-    add_meta_box(
-        'sy_level',
-        'تنظیمات بیشتر',
-        'sy_more_setting_html',
-        'post',
-        'normal'
-    );
+        add_meta_box(
+            'sy_level',
+            'تنظیمات بیشتر',
+            'sy_more_setting_html',
+            array( 'post', 'tech' ),
+            'normal'
+        );
 }
 
 function sy_more_setting_html($post)
@@ -33,6 +33,7 @@ function sy_more_setting_html($post)
         <div>
             <label for="post-level">سطح مقاله</label>
             <select name="post_level" id="post-level">
+                <option value="" disabled selected>انتخاب کنید</option>
                 <option value="1"<?php selected($post_level, 1) ?>>مقدماتی</option>
                 <option value="2"<?php selected($post_level, 2) ?>>متوسط</option>
                 <option value="3"<?php selected($post_level, 3) ?>>پیشرفته</option>
@@ -64,7 +65,8 @@ function sy_more_setting_html($post)
 
             ?>
             <label for="post-type">نوع محتوا</label>
-            <select name="post_types" id="post-type">
+            <select name="post_types" id="post-type" >
+                <option value="" disabled selected>انتخاب کنید</option>
                 <option value="1"<?php selected($post_types, 1) ?>>ویدئو</option>
                 <option value="2"<?php selected($post_types, 2) ?>>مقاله</option>
             </select>
@@ -75,7 +77,7 @@ function sy_more_setting_html($post)
 
 function sy_save_meta_box($post_id)
 {
-
+echo 'id-test'.$post_id;
     // Name of the nonce field
     $post_level_nonce_name = $_POST['post_level_nonces'] ?? '';
     $post_level_nonce_action = 'post_level_nonce';
@@ -104,7 +106,7 @@ function sy_save_meta_box($post_id)
     }
 
     // Data is safe to save now, sanitize the post level and update post meta if not empty
-    if (!empty($_POST['post_level']) && !empty($_POST['post_cat'])) {
+    if (!empty($_POST['post_level']) || !empty($_POST['post_cat']) || !empty($_POST['post_types'])) {
 
         $post_level = sanitize_text_field($_POST['post_level']);
         $post_cat = sanitize_text_field($_POST['post_cat']);

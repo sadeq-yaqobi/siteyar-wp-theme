@@ -39,11 +39,7 @@ $the_query = new WP_Query($args);
 
 
                     <a class="pic-main" href="<?php the_permalink(); ?>">
-                        <?php if (has_post_thumbnail()) {
-                            the_post_thumbnail('', ['class' => 'img-responsive', 'alt' => get_the_title()]);
-                        } else {
-                            echo sy_default_post_thumbnail();
-                        } ?>
+                        <?php echo sy_post_thumbnail(); ?>
                     </a>
                 </div>
                 <div class="edu_data singles_items_border_bottom">

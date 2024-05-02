@@ -1,17 +1,17 @@
 <?php
 // Hook the 'fetchPopularPosts' function to handle AJAX requests for the 'popular' action
-add_action('wp_ajax_popular', 'fetchPopularPosts'); // Logged-in users
-add_action('wp_ajax_nopriv_popular', 'fetchPopularPosts'); // Non-logged-in users
+add_action('wp_ajax_popular', 'popular'); // Logged-in users
+add_action('wp_ajax_nopriv_popular', 'popular'); // Non-logged-in users
 
 // Callback function to retrieve and display popular posts
-function fetchPopularPosts()
+function popular()
 {
     // Define query arguments to fetch popular posts
     $args = [
         'post_type' => ['tech'], // Limit to the 'tech' post type
-        'posts_per_page' => 3, // Display 3 posts per page
+        'showposts' => 3, // show 3 posts
         'meta_key' => '_sy_post_view_nums', // Use a custom meta key for post views
-        'orderby' => '_sy_post_view_nums', // Order by post views
+        'orderby' => 'meta_value_num', // Order by post views
         'order' => 'DESC' // Sort in descending order (most popular first)
     ];
 
@@ -25,27 +25,7 @@ function fetchPopularPosts()
         // Loop through each post in the query result
         while ($the_query->have_posts()): $the_query->the_post();
             // Append HTML markup for each post to the output variable
-            $html_output .=  '
-<div class="col-lg-4 col-md-4 col-sm-12">
-    <div class="articles_grid_style">
-        <div class="articles_grid_thumb">
-            <a href="' . get_the_permalink() . '">
-           
-            </a>
-        </div>
-        <div class="articles_grid_caption">
-            <h4>' . get_the_title() . '</h4>
-            <div class="articles_grid_author">
-                <div class="articles_grid_author_img">
-                    ' . get_avatar(get_the_author_meta('user_email'), 40, '', get_the_author(), ['class' => 'img-fluid']) . '
-                </div>
-                <h4>' . get_the_author() . '</h4>
-            </div>
-        </div>
-    </div>
-</div>
-        ';
-
+            $html_output .= sy_tech_html_output();
         endwhile;
 
         // Send JSON response with success status, HTML content, and a success message
@@ -57,7 +37,10 @@ function fetchPopularPosts()
 
     else:
         // Send JSON response with error message if no posts are found
-        wp_send_json_error('محبوب‌ترین پستی پیدا نشد');
+        wp_send_json([
+            'error' => true,
+            'message' => 'محبوب‌ترین یافت نشد',
+        ],403);
 
     endif;
 

@@ -49,7 +49,19 @@ include_once '_inc/sy-theme-comment/comments_list.php';
 include_once '_inc/tech-custom-post-type-taxonomy/tech-custom-post-type-taxonomy.php';
 
 // include php function that handles ajax request to show the most popular posts
-include_once 'loop/index/post-most-popular-loop.php';
+include_once 'loop/index/tech-most-popular-loop.php';
+
+// include php function that handles ajax request to show the hottest posts
+include_once 'loop/index/tech-hottest-loop.php';
+
+// include php function that handles ajax request to show the newest posts
+include_once 'loop/index/tech-newest-loop.php';
+
+// include php function that handles ajax request to show the posts that has video
+include_once 'loop/index/tech-video-loop.php';
+
+// include php function that handles ajax output html structure
+include_once 'loop/index/tech-html-output.php';
 
 
 add_filter('use_block_editor_for_post', '__return_false');

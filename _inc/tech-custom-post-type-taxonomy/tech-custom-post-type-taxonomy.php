@@ -44,7 +44,7 @@ function sy_register_tech_post_type()
         'hierarchical'       => false,
         'menu_position'      => null,
         //'taxonomies'=>['category','post_tag'], //showing post categories and tags on custom post type
-        'supports'           => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments' ),
+        'supports'           => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments','custom-fields' ),
         'show_in_rest'=> true
     );
 
@@ -70,7 +70,7 @@ function sy_register_tech_taxonomy()
     );
 
     $args = array(
-        'hierarchical'      => false,
+        'hierarchical'      => true,
         'labels'            => $labels,
         'show_ui'           => true,
         'show_admin_column' => true,
