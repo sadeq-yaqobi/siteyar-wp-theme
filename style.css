@@ -12066,3 +12066,8 @@ span.cat-count {
 .comment-pagination a.next, .comment-pagination a.prev {
     background-color:transparent;
 }
+
+.transition-all-4{
+    transition: all .4s ease-in-out;
+}
+
