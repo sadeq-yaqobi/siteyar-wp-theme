@@ -37,7 +37,7 @@ class Breadcrumb
             echo the_search_query();
             echo '</em>';
         } // 404 page breadcrumb
-        elseif (is_search()) {
+        elseif (is_404()) {
             echo '&nbsp;&#187;&nbsp';
             echo 'خطای 404: صفحه پیدا نشد';
         }

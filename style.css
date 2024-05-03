@@ -4849,6 +4849,12 @@ li.login-attri .account-drop a {
     max-width: 25px;
     top: 1px;
 }
+.input-with-icon .search-icon{
+    position: absolute;
+    right: 15px;
+    max-width: 25px;
+    top: 20px;
+}
 
 .input-with-icon i {
     position: absolute;
