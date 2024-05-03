@@ -6,6 +6,13 @@ add_action('wp_ajax_nopriv_video', 'video');// Non-logged-in users
 // Callback function to retrieve and display posts that have video
 function video()
 {
+    if (!wp_verify_nonce($_POST['_nonce'])) {
+        wp_send_json([
+            'error' => true,
+            'message' => 'access denied'
+        ], 403);
+    }
+
     // Define query arguments to fetch posts that have video
     $args = [
         'post_type' => ['tech'], // Limit to the 'tech' post type

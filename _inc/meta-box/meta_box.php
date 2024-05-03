@@ -8,7 +8,7 @@ function sy_register_more_setting()
             'sy_level',
             'تنظیمات بیشتر',
             'sy_more_setting_html',
-            array( 'post', 'tech' ),
+            array( 'post', 'tech','page' ),
             'normal'
         );
 }

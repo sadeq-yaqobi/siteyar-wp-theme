@@ -13,21 +13,24 @@
                     <div class="search_hero_wrapping">
                         <div class="row">
 
-                            <div class="col-9 col-lg-9 col-md-9 col-sm-9 br-right">
-                                <div class="form-group">
-                                    <div class="input-with-icon">
-                                        <input type="text" class="form-control" placeholder="جستجو ..." />
-                                        <img src="<?php echo get_template_directory_uri().'/assets/img/search.svg'?>" class="search-icon" alt="" />
+                                <div class="col-9 col-lg-9 col-md-9 col-sm-9 br-right">
+                                    <div class="form-group">
+                                        <div class="input-with-icon">
+                                            <form action="<?php bloginfo('url'); ?>" method="get">
+                                            <input type="text" name="s" class="form-control" placeholder="جستجو ..."/>
+                                            <img src="<?php echo get_template_directory_uri() . '/assets/img/search.svg' ?>"
+                                                 class="search-icon" alt=""/>
+
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
 
-                            <div class="col-3 col-lg-3 col-md-3 col-sm-3 pl-0">
-                                <div class="form-group none">
-                                    <a href="#" class="btn search-btn full-width">جستجو</a>
+                                <div class="col-3 col-lg-3 col-md-3 col-sm-3 pl-0">
+                                    <div class="form-group none">
+                                        <input type="submit" class="btn search-btn full-width" value="جستجو">
+                                    </div>
                                 </div>
-                            </div>
-
+                            </form>
                         </div>
 
                     </div>

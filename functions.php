@@ -27,6 +27,9 @@ include_once 'helper-class/TimeModify.php';
 // Include GoogleReferer numbers class
 include_once 'helper-class/GoogleReferer.php';
 
+// Include excerpt post class
+include_once 'helper-class/ExcerptPost.php';
+
 // Include widget file
 include_once '_inc/widget/sidebar_widget.php';
 
