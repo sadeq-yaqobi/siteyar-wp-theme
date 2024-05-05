@@ -48,8 +48,34 @@
                 </div>
             <?php endwhile; ?>
         <?php else: ?>
-            <div class="alert alert-info">نتیجه‌ای یافت نشد!</div>
+            <div class="alert alert-info w-100 ">کاربر گرامی: نتیجه‌ای برای کلید واژه <?php echo $_GET['s']?> یافت نشد!</div>
+            <div class="single_widgets widget_tags w-100 border-0 my-5">
+                <h4 class="title my-3">تگ‌های پر بازدید</h4>
+                <?php
+                // Check if the wp_tag_cloud function exists and if there are tags to display
+                if (function_exists('wp_tag_cloud')): ?>
+                    <ul>
+                        <?php
+                        // Generate the tag cloud with specific parameters
+                        $cloud_tags = wp_tag_cloud('smallest=12&largest=17&format=array&unit=px&number=60');
+                        if ($cloud_tags) {
+                            foreach ($cloud_tags as $tag) {
+                                // Output each tag as a list item
+                                echo '<li>' . $tag . '</li>';
+                            }
+                        }else{
+                            echo '<div class="alert-warning alert">تگی یافت نشد</div>';
+                        }
+                        ?>
+                    </ul>
+
+                <?php else: ?>
+                    <!-- Display a warning message if no tags are found -->
+                    <div class="alert-warning alert">تگی یافت نشد</div>
+                <?php endif; ?>
+            </div>
         <?php endif; ?>
+        <?php wp_reset_postdata();?>
     </div>
 </div>
 
