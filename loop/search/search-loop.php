@@ -1,11 +1,19 @@
 <div class="container">
+    <?php
+    //Notice: If the $wp_query doesn't work you have to globalize it
+    //global $wp_query;
+
+    if ($wp_query->found_posts):?>
+        <div class="mb-4" style="font-size: 18px;">تعداد مطالب یافت شده: <span
+                    class="badge badge-light py-1 px-2"><?php echo $wp_query->found_posts ?></span></div>
+    <?php endif;
+    ?>
     <div class="row">
         <?php if (have_posts()): ?>
             <?php while (have_posts()):the_post(); ?>
                 <!-- Course Grid 1 -->
                 <div class="col-lg-4 col-md-6">
                     <div class="education_block_grid">
-
                         <div class="education_block_thumb">
                             <a href="<?php the_permalink(); ?>"><?php echo sy_post_thumbnail() ?></a>
                             <?php $post_cat = get_post_meta(get_the_ID(), '_sy_post_cat', true);
@@ -48,7 +56,9 @@
                 </div>
             <?php endwhile; ?>
         <?php else: ?>
-            <div class="alert alert-info w-100 ">کاربر گرامی: نتیجه‌ای برای کلید واژه <?php echo $_GET['s']?> یافت نشد!</div>
+            <div class="alert alert-info w-100 ">کاربر گرامی: نتیجه‌ای برای کلید واژه <span
+                        class="text-warning"><?php echo $_GET['s'] ?></span> یافت نشد!
+            </div>
             <div class="single_widgets widget_tags w-100 border-0 my-5">
                 <h4 class="title my-3">تگ‌های پر بازدید</h4>
                 <?php
@@ -77,5 +87,6 @@
         <?php endif; ?>
         <?php wp_reset_postdata();?>
     </div>
+    <div class="text-center theme-pagination"><?php the_posts_pagination();?></div>
 </div>
 

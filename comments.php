@@ -17,7 +17,7 @@
                     ];
                     wp_list_comments($args) ?>
                 </ul>
-                <div class="comment-pagination text-center my-4">
+                <div class="theme-pagination text-center my-4">
                     <?php paginate_comments_links();?>
                 </div>
             </div>
