@@ -75,7 +75,7 @@ function sy_register_tech_taxonomy()
         'show_ui'           => true,
         'show_admin_column' => true,
         'query_var'         => true,
-        'rewrite'           => array( 'slug' => 'tech' ),
+        'rewrite'           => array( 'slug' => 'cat-tech' ),
     );
 
     register_taxonomy( 'cat-tech', array( 'tech' ), $args );
@@ -103,7 +103,7 @@ function sy_register_tech_taxonomy()
         'show_ui'           => true,
         'show_admin_column' => true,
         'query_var'         => true,
-        'rewrite'           => array( 'slug' => 'tags' ),
+        'rewrite'           => array( 'slug' => 'tag-tech' ),
     );
 
     register_taxonomy( 'tag-tech', array( 'tech' ), $args );
