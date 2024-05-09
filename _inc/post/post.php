@@ -7,10 +7,10 @@ function sy_default_post_thumbnail(): string
 }
 
 // getting post thumbnail
-function sy_post_thumbnail(): string
+function sy_post_thumbnail($class='img-fluid'): string
 {
     if (has_post_thumbnail()) {
-        return get_the_post_thumbnail('','', ['class' => 'img-fluid', 'alt' => get_the_title()]);
+        return get_the_post_thumbnail('','', ['class' => $class, 'alt' => get_the_title()]);
     } else {
        return sy_default_post_thumbnail();
     }

@@ -12,24 +12,6 @@ include_once '_inc/post/post.php';
 // Include meta box registration file
 include_once '_inc/meta-box/meta_box.php';
 
-//Include breadcrumb class
-include_once 'class/breadcrumb/Breadcrumb.php';
-
-// Include PostView counter class
-include_once 'helper-class/PostView.php';
-
-// Include ReadingEstimateTime class
-include_once 'helper-class/ReadingEstimateTime.php';
-
-// Include Time working functionality class
-include_once 'helper-class/TimeModify.php';
-
-// Include GoogleReferer numbers class
-include_once 'helper-class/GoogleReferer.php';
-
-// Include excerpt post class
-include_once 'helper-class/ExcerptPost.php';
-
 // Include widget file
 include_once '_inc/widget/sidebar_widget.php';
 
@@ -50,6 +32,33 @@ include_once '_inc/sy-theme-comment/comments_list.php';
 
 // include post type and taxonomy builder
 include_once '_inc/tech-custom-post-type-taxonomy/tech-custom-post-type-taxonomy.php';
+
+// Include functionality of adding user's skill in profile
+include_once '_inc/user/user-skill-title.php';
+
+//include file that was used to modify main wordPress query
+include_once '_inc/modify-queries/modify-queries.php';
+
+//Include breadcrumb class
+include_once 'class/breadcrumb/Breadcrumb.php';
+
+// Include PostView counter class
+include_once 'helper-class/PostView.php';
+
+// Include ReadingEstimateTime class
+include_once 'helper-class/ReadingEstimateTime.php';
+
+// Include Time working functionality class
+include_once 'helper-class/TimeModify.php';
+
+// Include GoogleReferer numbers class
+include_once 'helper-class/GoogleReferer.php';
+
+// Include excerpt post class
+include_once 'helper-class/ExcerptPost.php';
+
+// Include debug helper class
+include_once 'helper-class/DebugHelper.php';
 
 // include php function that handles ajax request to show the most popular posts
 include_once 'loop/index/tech-most-popular-loop.php';

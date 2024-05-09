@@ -6653,6 +6653,7 @@ ul.list_ed_detail2 li.tag-5 strong, ul.list_ed_detail2 li.tag-5 i {
 }
 
 .bb-video-box-inner {
+    position:relative;
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -6660,6 +6661,13 @@ ul.list_ed_detail2 li.tag-5 strong, ul.list_ed_detail2 li.tag-5 i {
     align-items: center;
     justify-content: center;
     background: rgba(255, 255, 255, 1);
+}
+.bb-video-box-inner a {
+    position: absolute;
+    top: 50%;
+    left:50%;
+    transform:translate( -44%,-38%);
+
 }
 
 /*------------ Overview --------------*/
@@ -11884,6 +11892,9 @@ a._cr_detail_arrow {
 
 .rtl {
     direction: rtl
+}
+.ltr{
+    direction:ltr!important;
 }
 
 .social-login ul li.left {

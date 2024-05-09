@@ -32,7 +32,7 @@
                                         <?php echo get_avatar(get_the_author_meta('user_email'), 35, '', get_the_author(), ['class' => 'img-fluid']) ?>
 
                                     </a></div>
-                                <h5><a href="instructor-detail.html"><?php the_author(); ?></a></h5>
+                                <h5><?php the_author_posts_link();?></h5>
                             </div>
                             <?php $post_level = get_post_meta(get_the_ID(), '_sy_post_level', true);
                             if (!empty($post_level)) {
