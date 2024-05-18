@@ -49,11 +49,13 @@
                                                             </div>
                                                         <?php endif; ?>
                                                     </div>
-                                                    <?php echo $post_type_video == 1?'<div class="edu_duration">25:10</div>':null ?>
+                                                    <?php echo $post_type_video == 1 ? '<div class="edu_duration">25:10</div>' : null ?>
                                                 </div>
                                                 <div class="edu_video detail">
                                                     <div class="edu_video_header">
-                                                        <h4><a href="<?php the_permalink();?>"><?php the_title();?></a></h4>
+                                                        <h4>
+                                                            <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+                                                        </h4>
                                                     </div>
                                                     <div class="edu_video_bottom">
                                                         <div class="edu_video_bottom_left mt-3">
@@ -80,8 +82,8 @@
                                                             <?php
                                                             $post_cat = get_post_meta(get_the_ID(), '_sy_post_cat', true);
                                                             if (!empty($post_cat)):?>
-                                                            <i class="ti-desktop"></i>
-                                                               <span> <?php echo get_the_category_by_ID($post_cat) ?></span>
+                                                                <i class="ti-desktop"></i>
+                                                                <span> <?php echo get_the_category_by_ID($post_cat) ?></span>
                                                             <?php endif; ?>
                                                         </div>
                                                     </div>
@@ -96,39 +98,25 @@
                         </div>
 
                         <!-- Education -->
-                        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                        <div class="tab-pane fade " id="profile" role="tabpanel" aria-labelledby="profile-tab">
                             <div class="details_single p-2">
-                                <h2>درباره استاد</h2>
                                 <ul class="skills_info">
-                                    <li>
-                                        <div class="skills_captions">
-                                            <h4 class="Skill_title">فارغ التحصیل کارشناسی ارشد مهندسی برق</h4>
-                                            <span>1397 - 1399</span>
-                                            <span>دانشگاه تربیت مدرس</span>
-                                            <p class="skills_dec">سابقه تدریس به شاگردانی که قصد ورود به مدارس برتر،
-                                                نمونه دولتی، روشنگران، سلام، خرد و مهدوی را داشتند.</p>
-                                        </div>
-                                    </li>
+                                    <?php $user_resume = get_user_meta(get_query_var('author_id'), '_sy_user_resume', true);
 
-                                    <li>
-                                        <div class="skills_captions">
-                                            <h4 class="Skill_title">فارغ التحصیل کارشناسی مهندسی برق</h4>
-                                            <span>1395 - 1396</span>
-                                            <span>دانشگاه شهید بهشتی</span>
-                                            <p class="skills_dec">تدریس آنلاین ریاضی به ایرانیان مقیم کشورهای مختلف از
-                                                جمله: کانادا، امریکا، انگلیس، روسیه، دبی و مالزی</p>
-                                        </div>
-                                    </li>
+                                    $user_careers = explode('**', $user_resume);
+                                    foreach ($user_careers as $user_career):
+                                        $user_career_parts = explode('|', $user_career);
+                                        ?>
 
-                                    <li>
-                                        <div class="skills_captions">
-                                            <h4 class="Skill_title">3 سال سابقه تدریس ریاضیات و فیزیک</h4>
-                                            <span>1397 - 1399</span>
-                                            <span>موسسه قلم چی</span>
-                                            <p class="skills_dec">تدریس ریاضی به زبان انگلیسی در مدارس اینترنشنال به
-                                                دانش آموزان انگلیسی زبان و گذراندن دوره های تربیت معلم</p>
-                                        </div>
-                                    </li>
+                                        <li>
+                                            <div class="skills_captions">
+                                                <h4 class="Skill_title"><?php echo $user_career_parts[0]; ?></h4>
+                                                <span><?php echo $user_career_parts[1] ?></span>
+                                                <span><?php echo $user_career_parts[2] ?></span>
+                                                <p class="skills_dec"><?php echo $user_career_parts[3] ?></p>
+                                            </div>
+                                        </li>
+                                    <?php endforeach; ?>
                                 </ul>
                             </div>
                         </div>
@@ -137,88 +125,55 @@
                         <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
                             <div class="reviews-comments-wrap">
                                 <!-- reviews-comments-item -->
-                                <div class="reviews-comments-item">
-                                    <div class="review-comments-avatar">
-                                        <img src="assets/img/user-1.jpg" class="img-fluid" alt="">
-                                    </div>
-                                    <div class="reviews-comments-item-text">
-                                        <h4><a href="#">حسام موسوی</a><span class="reviews-comments-item-date"><i
-                                                        class="ti-calendar theme-cl"></i>27 آبان 1399</span></h4>
+                                <?php $args = [
+                                    'status' => 'approve',
+                                    'post_author' => get_the_author_meta('ID'),
+                                    'author__not_in' => get_the_author_meta('ID')
+                                ];
+                                $the_comments = new WP_Comment_Query();
+                                // we set $args into query method of Wp_Comment_Query's object because we just need comments data not other things that it returns
+                                $the_comments = $the_comments->query($args);
+                                //                                DebugHelper::dump($the_comments);
+                                ?>
+                                <?php if ($the_comments): ?>
+                                    <?php foreach ($the_comments as $the_comment): ?>
+                                        <div class="reviews-comments-item">
+                                            <div class="review-comments-avatar">
+                                                <?php echo get_avatar($the_comment->comment_author_email, 80, '', $the_comment->comment_author, ['class' => 'img-fluid']) ?>
+                                            </div>
+                                            <div class="reviews-comments-item-text">
+                                                <h5>
+                                                    <?php echo $the_comment->comment_author ?>
+                                                    <span class="reviews-comments-item-date"><i
+                                                                class="ti-calendar theme-cl"></i><?php echo get_comment_date('j F Y', $the_comment->comment_ID) ?></span>
+                                                </h5>
+                                                <h4 class="my-2">برای مطلب: <a
+                                                            href="<?php echo get_comment_link($the_comment->comment_ID) ?>"><?php echo get_the_title($the_comment->comment_post_ID) ?></a>
+                                                </h4>
 
-                                        <div class="listing-rating high" data-starrating2="5"><i
-                                                    class="ti-star active"></i><i class="ti-star active"></i><i
-                                                    class="ti-star active"></i><i class="ti-star active"></i><i
-                                                    class="ti-star active"></i><span class="review-count">4.9</span>
+                                                <!--  <div class="listing-rating high" data-starrating2="5">
+                                                      <i class="ti-star active"></i>
+                                                      <i class="ti-star active"></i><i class="ti-star active"></i>
+                                                      <i class="ti-star active"></i><i class="ti-star active"></i><span class="review-count">4.9</span>
+                                                  </div>-->
+
+                                                <div class="clearfix"></div>
+                                                <p class="my-2"><?php echo $the_comment->comment_content ?></p>
+                                                <!--<div class="pull-left reviews-reaction">
+                                                    <a href="#" class="comment-like active"><i class="ti-thumb-up"></i> 12</a>
+                                                    <a href="#" class="comment-dislike active"><i class="ti-thumb-down"></i>
+                                                        1</a>
+                                                    <a href="#" class="comment-love active"><i class="ti-heart"></i> 07</a>
+                                                </div>-->
+                                            </div>
                                         </div>
-                                        <div class="clearfix"></div>
-                                        <p>" فن بیان و روش مفهومی بسیار عالی و مسلط منظم و دقیق و حرفه ای هستند راه حل
-                                            ها و تکنیک راهبرد حل مسئله اموزش دادند و سوالات مرتبط دادند و حل کردیم و رفع
-                                            اشکال کردیم باتوجه به سرعت و سطحم درس میدادند. "</p>
-                                        <div class="pull-left reviews-reaction">
-                                            <a href="#" class="comment-like active"><i class="ti-thumb-up"></i> 12</a>
-                                            <a href="#" class="comment-dislike active"><i class="ti-thumb-down"></i>
-                                                1</a>
-                                            <a href="#" class="comment-love active"><i class="ti-heart"></i> 07</a>
-                                        </div>
+                                    <?php endforeach; ?>
+                                <?php else: ?>
+                                    <div class="alert alert-info">تاکنون دیدگاهی برای مطالب این نویسنده منتشر نشده
+                                        است!
                                     </div>
-                                </div>
+                                <?php endif; ?>
                                 <!--reviews-comments-item end-->
-
-                                <!-- reviews-comments-item -->
-                                <div class="reviews-comments-item">
-                                    <div class="review-comments-avatar">
-                                        <img src="assets/img/user-2.jpg" class="img-fluid" alt="">
-                                    </div>
-                                    <div class="reviews-comments-item-text">
-                                        <h4><a href="#">الهام عظیمی</a><span class="reviews-comments-item-date"><i
-                                                        class="ti-calendar theme-cl"></i>2 بهمن 1399</span></h4>
-
-                                        <div class="listing-rating mid" data-starrating2="5"><i
-                                                    class="ti-star active"></i><i class="ti-star active"></i><i
-                                                    class="ti-star active"></i><i class="ti-star active"></i><i
-                                                    class="ti-star"></i><span class="review-count">3.7</span></div>
-                                        <div class="clearfix"></div>
-                                        <p>" استاد خوبی هستند دختر من تو سفارت هند درس میخونه و برامون مهم بود که استاد
-                                            انگلیسی صحبت کنن و این استاد این ویژگی رو دارند خیلی خوبه به دخترم تمرین
-                                            میدن و تو واتساب هم پشتیبانی میکنند و پیگیر هستند. "</p>
-                                        <div class="pull-left reviews-reaction">
-                                            <a href="#" class="comment-like active"><i class="ti-thumb-up"></i> 12</a>
-                                            <a href="#" class="comment-dislike active"><i class="ti-thumb-down"></i>
-                                                1</a>
-                                            <a href="#" class="comment-love active"><i class="ti-heart"></i> 07</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--reviews-comments-item end-->
-
-                                <!-- reviews-comments-item -->
-                                <div class="reviews-comments-item">
-                                    <div class="review-comments-avatar">
-                                        <img src="assets/img/user-3.jpg" class="img-fluid" alt="">
-                                    </div>
-                                    <div class="reviews-comments-item-text">
-                                        <h4><a href="#">علی محسنی</a><span class="reviews-comments-item-date"><i
-                                                        class="ti-calendar theme-cl"></i>10 فروردین 1400</span></h4>
-
-                                        <div class="listing-rating good" data-starrating2="5"><i
-                                                    class="ti-star active"></i><i class="ti-star active"></i><i
-                                                    class="ti-star active"></i><i class="ti-star active"></i><i
-                                                    class="ti-star"></i> <span class="review-count">4.2</span></div>
-                                        <div class="clearfix"></div>
-                                        <p>" ما برای امتحان ورودی مدرسه در استانبول ترکیه نیاز ب استادی توانمند داشتیم
-                                            که به زبان انگلیسی ریاضی را اموزش دهد تا در امتحان قبول شود که استاد مجدی به
-                                            خوبی از عهده ی این کار برامدند وبسیار دقیق و منظم و مسلط هستند و بسیار
-                                            خوشحال و راضی ام "</p>
-                                        <div class="pull-left reviews-reaction">
-                                            <a href="#" class="comment-like active"><i class="ti-thumb-up"></i> 12</a>
-                                            <a href="#" class="comment-dislike active"><i class="ti-thumb-down"></i>
-                                                1</a>
-                                            <a href="#" class="comment-love active"><i class="ti-heart"></i> 07</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--reviews-comments-item end-->
-
                             </div>
                         </div>
 

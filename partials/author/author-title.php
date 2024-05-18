@@ -5,6 +5,9 @@ $author = $wp_query->get_queried_object();
 
 //DebugHelper::dump($author);
 //exit();
+
+// author id was set in author_key key that we can use in author-loop.php file
+set_query_var('author_id',$author->ID);
 ?>
 
 
@@ -34,7 +37,7 @@ $author = $wp_query->get_queried_object();
                         <div class="viewer_package_status">عضویت از <?php echo TimeModify::time_ago($author->user_registered)?></div>
                         <div class="viewer_header">
                             <h4><?php echo $author->display_name?></h4>
-                            <span class="viewer_location"><?php echo get_user_meta($author->ID,'_sy_user_skill',true)?></span>
+                            <span class="viewer_location"><?php echo get_user_meta($author->ID,'_sy_user_expertise',true)?></span>
                             <ul class="mt-2">
                                 <li> تعداد مطالب: <strong><?php echo count_user_posts($author->ID,['post','tech'])?></strong></li>
                                 <li> ویدئو آموزشی: <strong>87</strong></li>

@@ -33,8 +33,8 @@ include_once '_inc/sy-theme-comment/comments_list.php';
 // include post type and taxonomy builder
 include_once '_inc/tech-custom-post-type-taxonomy/tech-custom-post-type-taxonomy.php';
 
-// Include functionality of adding user's skill in profile
-include_once '_inc/user/user-skill-title.php';
+// Include functionality of adding user's resume in profile
+include_once '_inc/user/user-resume.php';
 
 //include file that was used to modify main wordPress query
 include_once '_inc/modify-queries/modify-queries.php';
