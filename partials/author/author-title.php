@@ -36,7 +36,7 @@ set_query_var('author_id',$author->ID);
                     <div class="caption">
                         <div class="viewer_package_status">عضویت از <?php echo TimeModify::time_ago($author->user_registered)?></div>
                         <div class="viewer_header">
-                            <h4><?php echo $author->display_name?></h4>
+                            <h4 class="my-2"><?php echo $author->display_name?></h4>
                             <span class="viewer_location"><?php echo get_user_meta($author->ID,'_sy_user_expertise',true)?></span>
                             <ul class="mt-2">
                                 <li> تعداد مطالب: <strong><?php echo count_user_posts($author->ID,['post','tech'])?></strong></li>

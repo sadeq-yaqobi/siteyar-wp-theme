@@ -1,3 +1,3 @@
 jQuery(document).ready(function ($) {
-    alert("dashboard-ajax")
+    // alert("dashboard-ajax")
 });
