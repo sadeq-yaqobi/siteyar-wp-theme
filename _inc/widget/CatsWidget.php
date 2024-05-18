@@ -82,7 +82,7 @@ class CatsWidget extends WP_Widget
      * @see WP_Widget::update()
      *
      */
-    function update($new_instance, $old_instance)
+    function update($new_instance, $old_instance): array
     {
         $instance = [];
         $instance['title'] = (!empty($new_instance['title'])) ? sanitize_text_field($new_instance['title']) : '';

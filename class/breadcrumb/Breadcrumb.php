@@ -31,6 +31,18 @@ class Breadcrumb
                 echo '&nbsp;&#187;&nbsp';
                 the_title('<li>', '</li>');
             }
+            //archive
+            if (is_archive()) {
+                echo '&nbsp;&#187;&nbsp';
+                echo 'آرشیو مطالب ';
+                if (is_year()) {
+                    echo get_the_date('Y');
+                } elseif (is_month()) {
+                    echo get_the_date('F Y');
+                } else {
+                    echo get_the_date('j F Y');
+                }
+            }
             // tag breadcrumb
             if (is_tag()) {
                 echo '&nbsp;&#187;&nbsp';
