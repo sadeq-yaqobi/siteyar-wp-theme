@@ -9545,7 +9545,7 @@ ul.cart_list li strong {
 
 .dashboard_container_header .form-inline .form-control, .form-inline.addons .form-control {
     border-left: none;
-    width: auto;
+    width: 84%;
     border-radius: 0 5px 5px 0;
 }
 

@@ -22,7 +22,6 @@ jQuery(document).ready(function ($) {
             success: function (response) {
                 if (response.success) {
                     // Actions to handle successful response
-                    console.log(response.content);
                     $('#ajax-load-content').html(response.content);
                 }
             },

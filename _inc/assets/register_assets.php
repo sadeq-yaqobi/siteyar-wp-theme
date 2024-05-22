@@ -48,7 +48,8 @@ function sy_register_assets()
         wp_enqueue_script('bootstrap-4-js');
 
         // popper-1.12.9
-        wp_register_script('popper-1', 'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js', ['jquery'], '1.12.9', ['strategy' => 'async', 'in_footer' => true]);
+//        wp_register_script('popper-1', 'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js', ['jquery'], '1.12.9', ['strategy' => 'async', 'in_footer' => true]);
+        wp_register_script('popper-1', get_template_directory_uri().'/assets/js/popper.min.js', ['jquery'], '1.12.9', ['strategy' => 'async', 'in_footer' => false]);
         wp_enqueue_script('popper-1');
 
         // select2/4.0.6-rc.1
