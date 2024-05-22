@@ -15,68 +15,86 @@
                         <div class="sidebar-widgets">
 
                             <!-- Search Form -->
-                            <form class="form-inline addons mb-3">
-                                <input class="form-control" type="search" placeholder="جستجو دوره" aria-label="Search">
+                            <form class="form-inline addons mb-3" method="get" action="<?php bloginfo('url'); ?>">
+                                <input name="s" class="form-control" type="search" placeholder="جستجو مطالب"
+                                       aria-label="Search">
                                 <button class="btn my-2 my-sm-0" type="submit"><i class="ti-search"></i></button>
                             </form>
 
-                            <h4 class="side_title">دسته بندی دوره</h4>
+                            <h4 class="side_title">نویسنده</h4>
                             <ul class="no-ul-list mb-3">
-                                <li>
-                                    <input id="a-4" class="checkbox-custom" name="a-4" type="checkbox">
-                                    <label for="a-4" class="checkbox-custom-label">برنامه نویسی (3)</label>
-                                </li>
-                                <li>
-                                    <input id="a-5" class="checkbox-custom" name="a-5" type="checkbox">
-                                    <label for="a-5" class="checkbox-custom-label">طراحی سایت (2)</label>
-                                </li>
-                                <li>
-                                    <input id="a-6" class="checkbox-custom" name="a-6" type="checkbox">
-                                    <label for="a-6" class="checkbox-custom-label">عمومی (2)</label>
-                                </li>
-                                <li>
-                                    <input id="a-7" class="checkbox-custom" name="a-7" type="checkbox">
-                                    <label for="a-7" class="checkbox-custom-label">فناوری اطلاعات (2)</label>
-                                </li>
-                                <li>
-                                    <input id="a-8" class="checkbox-custom" name="a-8" type="checkbox">
-                                    <label for="a-8" class="checkbox-custom-label">گرافیک (2)</label>
-                                </li>
-                                <li>
-                                    <input id="a-9" class="checkbox-custom" name="a-9" type="checkbox">
-                                    <label for="a-9" class="checkbox-custom-label">شبکه و امنیت (2)</label>
-                                </li>
+                                <?php
+                                $args = [
+                                    'role__in' => ['Administrator', 'author'],
+                                    'has_published_posts' => true,
+                                    'orderby' => 'post_count',
+                                    'order' => 'DESC',
+                                    'fields' => ['ID', 'display_name']
+                                ];
+                                $users = new WP_User_Query($args);
+                                $users = $users->get_results();
+                                if ($users):
+                                    foreach ($users as $user):?>
+                                        <li>
+                                            <?php $userID = $user->ID;
+                                            $user_display_name = $user->display_name;
+                                            ?>
+                                            <input id="user-id-<?php echo $userID ?>" class="checkbox-custom user-id"
+                                                   name=user-id-"<?php echo $userID ?>" type="checkbox"
+                                                   value="<?php echo $userID ?>">
+                                            <label for="user-id-<?php echo $userID ?>"
+                                                   class="checkbox-custom-label"><?php echo $user_display_name ?></label>
+                                        </li>
+                                    <?php endforeach; ?>
+                                <?php else: ?>
+                                    <li class="alert alert-warning">کاربری یافت نشد ابتدا یک کاربر اضافه کنید.</li>
+                                <?php endif; ?>
                             </ul>
 
-                            <h4 class="side_title">مدرسین</h4>
+                            <h4 class="side_title">دسته بندی مطالب</h4>
                             <ul class="no-ul-list mb-3">
-                                <li>
-                                    <input id="a-1" class="checkbox-custom" name="a-1" type="checkbox">
-                                    <label for="a-1" class="checkbox-custom-label">وحید صالحی</label>
-                                </li>
-                                <li>
-                                    <input id="a-2" class="checkbox-custom" name="a-2" type="checkbox">
-                                    <label for="a-2" class="checkbox-custom-label">علی مرادی  (11)</label>
-                                </li>
-                                <li>
-                                    <input id="a-6" class="checkbox-custom" name="a-6" type="checkbox">
-                                    <label for="a-6" class="checkbox-custom-label">الهام کریمی (4)</label>
-                                </li>
-                                <li>
-                                    <input id="a-7" class="checkbox-custom" name="a-7" type="checkbox">
-                                    <label for="a-7" class="checkbox-custom-label">مسعود محمدی (7)</label>
-                                </li>
-                                <li>
-                                    <input id="a-8" class="checkbox-custom" name="a-8" type="checkbox">
-                                    <label for="a-8" class="checkbox-custom-label">مهدی علوی</label>
-                                </li>
-                                <li>
-                                    <input id="a-9" class="checkbox-custom" name="a-9" type="checkbox">
-                                    <label for="a-9" class="checkbox-custom-label">شادی ترابی</label>
-                                </li>
+                                <?php
+                                unset($args);
+                                $args = [
+                                    'taxonomy' => ['category', 'cat-tech'],
+//                                    'hide_empty' => true,
+                                    'orderby' => 'count',
+                                    'order' => 'DESC',
+//                                    'fields' => 'id name'
+                                ];
+                                $terms = get_terms($args);
+                                if (!empty($terms) && is_array($terms)):
+                                    foreach ($terms as $term):
+                                        if ($term->taxonomy === 'category'):?>
+                                            <li>
+                                                <input id="term-id-<?php echo $term->term_id; ?>"
+                                                       class="checkbox-custom"
+                                                       name="term-id-<?php echo $term->term_id; ?>" type="checkbox">
+                                                <label for="term-id-<?php echo $term->term_id; ?>"
+                                                       class="checkbox-custom-label"><?php echo $term->name; ?></label>
+                                            </li>
+                                        <?php endif; ?>
+                                    <?php endforeach; ?>
+                                    <?php foreach ($terms as $term):
+                                    if ($term->taxonomy === 'cat-tech'):?>
+                                        <li>
+                                            <input id="term-id-<?php echo $term->term_id; ?>"
+                                                   class="checkbox-custom"
+                                                   name="term-id-<?php echo $term->term_id; ?>" type="checkbox">
+                                            <label for="term-id-<?php echo $term->term_id; ?>"
+                                                   class="checkbox-custom-label"><?php echo $term->name; ?> <small> (در
+                                                    اخبار تکنولوژی)</small></label>
+                                        </li>
+                                    <?php endif; ?>
+                                <?php endforeach; ?>
+                                <?php else: ?>
+                                    <li class="alert alert-warning">دسته‌بندی تعریف نشده است. ابتدا دسته‌بندی ایجاد
+                                        کنید
+                                    </li>
+                                <?php endif; ?>
                             </ul>
 
-                            <h4 class="side_title">نوع دوره</h4>
+                            <h4 class="side_title">نوع مطلب</h4>
                             <ul class="no-ul-list mb-3">
                                 <li>
                                     <input id="a-10" class="checkbox-custom" name="a-10" type="checkbox">
@@ -98,5 +116,8 @@
 
                     </div>
                 </div>
+
             </div>
         </div>
+        <?php //DebugHelper::dump($users); ?>
+        <!--                --><?php //DebugHelper::dump($terms); ?>
