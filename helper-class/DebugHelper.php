@@ -14,7 +14,7 @@ class DebugHelper
      */
     public static function dump($input, bool $collapse = false)
     {
-// Start debug output
+        // Start debug output
         echo '<div style="direction: ltr; padding: 35px;font-size: 16px;background-color: #F4F5F7">';
 
         // Recursive function to process and output debug information
@@ -68,10 +68,16 @@ class DebugHelper
                     break;
                 case "Array":
                     $type_length = count($data);
+                    break;
+                case "Object":
+                    $reflection = new ReflectionClass($data);
+                    $props = $reflection->getProperties();
+                    $type_length = count($props);
+                    break;
             }
 
             // Process arrays and objects recursively
-            if (in_array($type, array("Object", "Array"))) {
+            if (in_array($type, ["Object", "Array"])) {
                 $notEmpty = false;
 
                 foreach ($data as $key => $value) {
@@ -110,6 +116,22 @@ class DebugHelper
                     call_user_func($recursive, $value, $level + 1);
                 }
 
+                // If the type is an object, also process its properties
+                if ($type === "Object") {
+                    foreach ($reflection->getProperties() as $property) {
+                        $property->setAccessible(true);
+                        $key = $property->getName();
+                        $value = $property->getValue($data);
+
+                        for ($i = 0; $i <= $level; $i++) {
+                            echo $isTerminal ? "|    " : "<span style='color:#b7b7b8'>|</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+                        }
+
+                        echo $isTerminal ? "[" . $key . "] => " : "<span style='color:#070600'>[" . $key . "]&nbsp;=>&nbsp;</span>";
+                        call_user_func($recursive, $value, $level + 1);
+                    }
+                }
+
                 // Close divs and output if non-empty
                 if ($notEmpty) {
                     for ($i = 0; $i <= $level; $i++) {
@@ -125,7 +147,7 @@ class DebugHelper
                         "<span style='color:#b7b7b8;font-weight: lighter;font-size: 13px;'>" . $type . ($type_length !== null ? "(" . $type_length . ")" : "") . "</span>&nbsp;&nbsp;";
                 }
             } else {
-// Output non-array and non-object types
+                // Output non-array and non-object types
                 echo $isTerminal ?
                     $type . ($type_length !== null ? "(" . $type_length . ")" : "") . "  " :
                     "<span style='color:#b7b7b8;font-weight: lighter;font-size: 13px;'>" . $type . ($type_length !== null ? "(" . $type_length . ")" : "") . "</span>&nbsp;&nbsp;";
@@ -138,10 +160,10 @@ class DebugHelper
             echo $isTerminal ? "\n" : "<br />";
         };
 
-// Start recursive processing
+        // Start recursive processing
         call_user_func($recursive, $input);
 
-// End debug output
+        // End debug output
         echo '</div>';
     }
 }
