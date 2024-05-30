@@ -41,9 +41,9 @@ function sy_register_tech_post_type()
         'rewrite'            => array( 'slug' => 'tech' ),
         'capability_type'    => 'post',
         'has_archive'        => true,
-        'hierarchical'       => false,
+        'hierarchical'       => true,
         'menu_position'      => null,
-        //'taxonomies'=>['category','post_tag'], //showing post categories and tags on custom post type
+//        'taxonomies'=>['category','post_tag'], //showing post categories and tags on custom post type
         'supports'           => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments','custom-fields' ),
         'show_in_rest'=> true
     );
