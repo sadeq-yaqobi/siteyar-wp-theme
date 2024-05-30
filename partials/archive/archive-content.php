@@ -7,7 +7,7 @@
         <div class="row align-items-center mb-3">
             <?php if ($wp_query->found_posts):?>
             <div class="col-lg-6 col-md-6 col-sm-12">تعداد مطالب یافت شده: <strong
-                        class="badge badge-light py-1 px-2"><?php echo $wp_query->found_posts ?></strong></div>
+                        class="badge badge-light py-1 px-2 num-post-found"><?php echo $wp_query->found_posts ?></strong></div>
             <?php endif;?>
             <div class="col-lg-6 col-md-6 col-sm-12 ordering">
                 <div class="filter_wraps">

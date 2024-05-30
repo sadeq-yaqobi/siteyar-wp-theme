@@ -2,9 +2,9 @@
     <?php
     //Notice: If the $wp_query doesn't work you have to globalize it
     //global $wp_query;
-
+//    DebugHelper::dump($wp_query);
 ?>
-    <div class="row">
+    <div class="row" id="filter-content">
         <?php if (have_posts()): ?>
             <?php while (have_posts()):the_post(); ?>
                 <!-- Course Grid 1 -->
@@ -24,11 +24,11 @@
 
                         <div class="education_block_footer">
                             <div class="education_block_author">
-                                <div class="path-img"><a href="instructor-detail.html">
+                                <div class="path-img"><a href="">
                                         <?php echo get_avatar(get_the_author_meta('user_email'), 35, '', get_the_author(), ['class' => 'img-fluid']) ?>
 
                                     </a></div>
-                                <h5><a href="instructor-detail.html"><?php the_author(); ?></a></h5>
+                                <h5><?php echo get_the_author_posts_link()?></h5>
                             </div>
                             <?php $post_level = get_post_meta(get_the_ID(), '_sy_post_level', true);
                             if (!empty($post_level)) {

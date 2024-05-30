@@ -75,6 +75,11 @@ include_once 'loop/index/tech-video-loop.php';
 // include php function that handles ajax output html structure
 include_once 'loop/index/tech-html-output.php';
 
+// include php function that handles filtering post in archive page by ajax
+include_once 'loop/filter-content/filter-content-loop.php';
+
+// include php function that handles filtering post ajax output html structure
+include_once 'loop/filter-content/filter-content-html-output.php';
 
 add_filter('use_block_editor_for_post', '__return_false');
 add_filter('use_widgets_block_editor', '__return_false');
