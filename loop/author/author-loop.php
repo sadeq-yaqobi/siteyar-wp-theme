@@ -47,9 +47,10 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
+                                                            <div class="edu_duration">25:10</div>
                                                         <?php endif; ?>
                                                     </div>
-                                                    <?php echo $post_type_video == 1 ? '<div class="edu_duration">25:10</div>' : null ?>
+
                                                 </div>
                                                 <div class="edu_video detail">
                                                     <div class="edu_video_header">
