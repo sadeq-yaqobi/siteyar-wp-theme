@@ -45,6 +45,7 @@ jQuery(document).ready(function ($) {
         let userID = [];
         let postTermID = [];
         let techTermID = [];
+        let postType= $('.meta-post-type:checked').val();
         $.each($('.user-id:checked'), function () {
             userID.push($(this).val());
         });
@@ -54,9 +55,11 @@ jQuery(document).ready(function ($) {
         $.each($('.tech-term-id:checked'), function () {
             techTermID.push($(this).val());
         });
+
         console.log(userID);
         console.log(postTermID);
         console.log(techTermID);
+        console.log(postType);
 
         $.ajax({
             url: ajax.ajaxurl,
@@ -67,6 +70,7 @@ jQuery(document).ready(function ($) {
                 userID: userID,
                 postTermID: postTermID,
                 techTermID:techTermID,
+                postType : postType,
                 _nonce: ajax._nonce
             },
             beforeSend: function () {

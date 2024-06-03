@@ -6603,7 +6603,7 @@ ul.list_ed_detail2 li.tag-5 strong, ul.list_ed_detail2 li.tag-5 i {
     position: absolute;
     content: "";
     bottom: 0;
-    opacity: 0.5;
+    opacity: 0.2;
     border-radius: 1rem;
 }
 

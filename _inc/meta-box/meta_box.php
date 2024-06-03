@@ -32,7 +32,7 @@ function sy_more_setting_html($post)
         <!-- level part-->
         <div>
             <label for="post-level">سطح مقاله</label>
-            <select name="post_level" id="post-level">
+            <select required name="post_level" id="post-level">
                 <option value="" disabled selected>انتخاب کنید</option>
                 <option value="1"<?php selected($post_level, 1) ?>>مقدماتی</option>
                 <option value="2"<?php selected($post_level, 2) ?>>متوسط</option>
@@ -51,6 +51,7 @@ function sy_more_setting_html($post)
                 'id' => 'post-category',
                 'selected' => $category_id,
                 'show_count' => 1,
+                'required'=>true,
             ]);
             ?>
 
@@ -65,7 +66,7 @@ function sy_more_setting_html($post)
 
             ?>
             <label for="post-type">نوع محتوا</label>
-            <select name="post_types" id="post-type" >
+            <select required name="post_types" id="post-type" >
                 <option value="" disabled selected>انتخاب کنید</option>
                 <option value="1"<?php selected($post_types, 1) ?>>ویدئو</option>
                 <option value="2"<?php selected($post_types, 2) ?>>مقاله</option>

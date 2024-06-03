@@ -112,16 +112,16 @@
                                 <h4 class="side_title">نوع مطلب</h4>
                                 <ul class="no-ul-list mb-3">
                                     <li>
-                                        <input id="a-10" class="checkbox-custom" name="a-10" type="checkbox">
-                                        <label for="a-10" class="checkbox-custom-label">همه (75)</label>
+                                        <input id="a-10" class="checkbox-custom" name="post-type" type="radio" checked>
+                                        <label for="a-10" class="checkbox-custom-label">همه</label>
                                     </li>
                                     <li>
-                                        <input id="a-11" class="checkbox-custom" name="a-11" type="checkbox">
-                                        <label for="a-11" class="checkbox-custom-label">رایگان (15)</label>
+                                        <input id="a-11" class="checkbox-custom meta-post-type" name="post-type" type="radio" value="2">
+                                        <label for="a-11" class="checkbox-custom-label">مقاله</label>
                                     </li>
                                     <li>
-                                        <input id="a-12" class="checkbox-custom" name="a-12" type="checkbox">
-                                        <label for="a-12" class="checkbox-custom-label">نقدی (60)</label>
+                                        <input id="a-12" class="checkbox-custom meta-post-type" name="post-type" type="radio" value="1">
+                                        <label for="a-12" class="checkbox-custom-label">ویدیو</label>
                                     </li>
                                 </ul>
 
