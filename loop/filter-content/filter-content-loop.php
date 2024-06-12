@@ -9,7 +9,7 @@ add_action('wp_ajax_nopriv_sy_filter_content', 'sy_filter_content');
 function sy_filter_content()
 {
     // Verify the nonce for security
-    if (!wp_verify_nonce($_POST['_nonce'])) {
+    if (!isset($_POST['_nonce']) && !wp_verify_nonce($_POST['_nonce'])) {
         wp_send_json([
             'error' => true,
             'message' => 'دسترسی غیر مجاز است', // Unauthorized access message
@@ -20,18 +20,25 @@ function sy_filter_content()
     $user_ids = isset($_POST['userID']) ? array_map('intval', $_POST['userID']) : [];
     $post_term_ids = isset($_POST['postTermID']) ? array_map('intval', $_POST['postTermID']) : [];
     $tech_term_ids = isset($_POST['techTermID']) ? array_map('intval', $_POST['techTermID']) : [];
-    $post_types = $_POST['postType'] ?? '';
+    $post_types =$_POST['postType'] ?? '';
+    $filter_content_query = $_POST['filterContentQuery'] ?? '';
 
     // Build query arguments based on the input data
-    if (empty($post_term_ids) && empty($tech_term_ids) && empty($post_types) && empty($user_ids)) {
+    if (empty($post_term_ids) && empty($tech_term_ids) && empty($post_types) && empty($user_ids) || $filter_content_query == '1') {
+        update_option('_sy_filter_content', '1');
         // Case: No specific filters provided
         $args = [
             'post_type' => ['post', 'tech'],
+            'posts_per_page' => 3,
+            'paged' => $_POST['paged']
         ];
-    } elseif (empty($post_term_ids) && empty($tech_term_ids) && empty($user_ids)) {
+    } elseif (empty($post_term_ids) && empty($tech_term_ids) && empty($user_ids) || $filter_content_query == '2') {
+        update_option('_sy_filter_content', '2');
         // Case: Filter by post types only
         $args = [
             'post_type' => ['post', 'tech'],
+            'posts_per_page' => 3,
+            'paged' => $_POST['paged'],
             'meta_query' => [
                 [
                     'key' => '_sy_post_types',
@@ -40,16 +47,22 @@ function sy_filter_content()
                 ]
             ]
         ];
-    } elseif (empty($post_term_ids) && empty($tech_term_ids) && empty($post_types)) {
+    } elseif (empty($post_term_ids) && empty($tech_term_ids) && empty($post_types) || $filter_content_query == '3') {
+        update_option('_sy_filter_content', '3');
         // Case: Filter by user IDs only
         $args = [
             'post_type' => ['post', 'tech'],
+            'posts_per_page' => 3,
+            'paged' => $_POST['paged'],
             'author__in' => $user_ids,
         ];
-    } elseif (empty($post_term_ids) && empty($tech_term_ids)) {
+    } elseif (empty($post_term_ids) && empty($tech_term_ids) || $filter_content_query == '4') {
+        update_option('_sy_filter_content', '4');
         // Case: Filter by user IDs and post types
         $args = [
             'post_type' => ['post', 'tech'],
+            'posts_per_page' => 3,
+            'paged' => $_POST['paged'],
             'author__in' => $user_ids,
             'meta_query' => [
                 [
@@ -60,10 +73,12 @@ function sy_filter_content()
             ]
         ];
     } else {
+        update_option('_sy_filter_content', '5');
         // Case: Filter by term IDs, user IDs, and post types
         $args = [
             'post_type' => ['post', 'tech'],
-            'posts_per_page' => -1, // Adjust the number of posts to display
+            'posts_per_page' => 3,
+            'paged' => $_POST['paged'],
             'author__in' => $user_ids,
             'tax_query' => [
                 'relation' => 'OR',
@@ -106,6 +121,8 @@ function sy_filter_content()
             'message' => 'فیلتر با موفقیت اعمال شد', // Filter applied successfully message
             'content' => $html_output,
             'total_posts_num' => $the_query->found_posts,
+            'max_page' => $the_query->max_num_pages,
+            'filter_content_query' => get_option('_sy_filter_content'),
         ], 200);
     else:
         // Send an error response if no posts are found
@@ -118,4 +135,4 @@ function sy_filter_content()
     // Reset post data to avoid conflicts
     wp_reset_postdata();
 }
-?>
+

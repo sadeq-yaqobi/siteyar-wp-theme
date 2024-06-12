@@ -125,9 +125,8 @@
                                     </li>
                                 </ul>
 
-                                <button type="submit" class="btn btn-theme full-width mb-2" id="archive_filter_btn">
-                                    فیلتر کن
-                                </button>
+                                <button type="submit" class="btn btn-theme full-width mb-2" id="archive_filter_btn">فیلتر کن</button>
+                                <input type="hidden" id="filter_content_query">
                             </form>
 
                         </div>
