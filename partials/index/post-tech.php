@@ -20,6 +20,7 @@
                 </div>
             </div>
         </div>
+        <div class="tech-loading position-absolute"></div>
             <div id="ajax-load-content" class="row">
                 <!--                    showing tech post by loop-->
                 <?php get_template_part('/loop/index/tech-loop', 'tech-loop') ?>

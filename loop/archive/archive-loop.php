@@ -71,7 +71,7 @@
         <?php endif; ?>
         <?php wp_reset_postdata();?>
     </div>
-    <div class="text-center theme-pagination"><?php the_posts_pagination();?></div>
+    <div class="text-center theme-pagination" id="archive_pagination"><?php the_posts_pagination();?></div>
     <!-- Video Modal -->
 <!--    <div class="modal fade" id="popup-video" tabindex="-1" role="dialog" aria-labelledby="popup-videoLabel"-->
 <!--         aria-hidden="true">-->
@@ -84,7 +84,7 @@
 <!--                    </button>-->
 <!--                </div>-->
 <!--                <div class="modal-body">-->
-<!--                    <!-- Video iframe -->-->
+<!--                     Video iframe -->
 <!--                    <style>.h_iframe-aparat_embed_frame {-->
 <!--                            position: relative;-->
 <!--                        }-->

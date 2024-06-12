@@ -45,7 +45,7 @@
                 <!-- Pagination -->
                 <div class="row">
                     <div class="col-lg-12 col-md-12 col-sm-12 text-center">
-                        <button type="button" class="btn btn-loader"><i class="ti-reload ml-3"></i> فهرست کامل آموزش ها</button>
+                        <button id="load_more_btn" type="button" class="btn btn-loader d-none"> نمایش مطالب بیشتر<i class="fa fa-spin fa-spinner mr-3 d-none load-more-icon"></i></button>
                     </div>
                 </div>
 
