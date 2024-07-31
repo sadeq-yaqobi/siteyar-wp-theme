@@ -45,7 +45,8 @@ jQuery(document).ready(function ($) {
         let userID = [];
         let postTermID = [];
         let techTermID = [];
-        let postType = $('.meta-post-type:checked').val();
+        let metaPostType = $('.meta-post-type:checked').val();
+        let pageName = $('.page-name').val();
 
         $.each($('.user-id:checked'), function () {
             userID.push($(this).val());
@@ -67,10 +68,12 @@ jQuery(document).ready(function ($) {
                 userID: userID,
                 postTermID: postTermID,
                 techTermID: techTermID,
-                postType: postType,
+                metaPostType: metaPostType,
+                pageName:pageName,
                 _nonce: ajax._nonce
             },
             beforeSend: function () {
+                $('#load_more_archive_btn').hide();
                 // Actions to perform before sending the AJAX request
                 $('#filter-content').addClass('op-3 transition-all-4');
             },
@@ -123,6 +126,7 @@ jQuery(document).ready(function ($) {
         let techTermID = [];
         let postType = $('.meta-post-type:checked').val();
         let filterContentQuery = $('#filter_content_query').val();
+        let pageName = $('.page-name').val();
         $.each($('.user-id:checked'), function () {
             userID.push($(this).val());
         });
@@ -146,6 +150,7 @@ jQuery(document).ready(function ($) {
                 postType: postType,
                 paged: currentPage,
                 filterContentQuery: filterContentQuery,
+                pageName:pageName,
                 _nonce: ajax._nonce
 
             },
@@ -189,5 +194,64 @@ jQuery(document).ready(function ($) {
             },
         });
     });
+
+    //load more for tech archive and post archive
+    $('#load_more_archive_btn').on('click', function (e) {
+        currentPage++;
+        let pageSlug = $(this).data('page-slug');
+        // console.log(pageSlug);
+
+        $.ajax({
+            url: ajax.ajaxurl,
+            type: 'post',
+            datatype: 'json',
+            data: {
+                action: 'sy_more_content',
+                paged: currentPage,
+                pageSlug:pageSlug,
+                _nonce: ajax._nonce
+
+            },
+            beforeSend: function () {
+                // Actions to perform before sending the AJAX request
+                $('#filter-content').addClass('op-3 transition-all-4');
+                $('.load-more-icon').removeClass('d-none');
+            },
+            success: function (response) {
+                if (response.success) {
+                    // Actions to handle successful response
+                    if (response.content != null) {
+                        $('#filter-content').append(response.content);
+                        if (currentPage >= response.max_page) {
+                            $('#load_more_archive_btn').hide();
+                            currentPage = 1;
+                        }
+
+
+                        // console.log(response.content);
+                    } else {
+                        $('#filter-content').html('<div class="alert alert-info">مطلبی یافت نشد</div>');
+                        $('.num-post-found').text('0');
+                    }
+
+                }
+            },
+            error: function (error) {
+                if (error.error) {
+                    // Error handling based on specific error conditions
+                    $('#filter-content').html('<div class="alert alert-info w-100">' + error.responseJSON.message + '</div>');
+                    $('.num-post-found').text('0');
+                    console.log(error.responseJSON.message);
+
+                }
+            },
+            complete: function () {
+// Actions to perform after the AJAX request completes (regardless of success or failure)
+                $('#filter-content').removeClass('op-3');
+                $('.load-more-icon').addClass('d-none');
+            },
+        });
+    });
+
 
 });

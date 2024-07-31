@@ -55,34 +55,39 @@
 
                                 <h4 class="side_title">دسته بندی مطالب</h4>
                                 <ul class="no-ul-list mb-3">
-<!--                                    main post type category-->
+                                    <!--                                    main post type category-->
                                     <?php
-                                    unset($args);
-                                    $args = [
-                                        'taxonomy' => ['category'],
-                                    'hide_empty' => true,
-                                        'orderby' => 'count',
-                                        'order' => 'DESC',
-                                    ];
-                                    $terms = get_terms($args);
-                                    if (!empty($terms) && is_array($terms)):
-                                        foreach ($terms as $term):?>
+                                    if (is_page('post') || is_archive()):
+                                        unset($args);
+                                        $args = [
+                                            'taxonomy' => ['category'],
+                                            'hide_empty' => true,
+                                            'orderby' => 'count',
+                                            'order' => 'DESC',
+                                        ];
+                                        $terms = get_terms($args);
+                                        if (!empty($terms) && is_array($terms)):
+                                            foreach ($terms as $term):?>
 
                                                 <li>
                                                     <input id="post-term-id-<?php echo $term->term_id; ?>"
                                                            class="checkbox-custom post-term-id"
-                                                           name="post-term-id-<?php echo $term->term_id; ?>" type="checkbox"
+                                                           name="post-term-id-<?php echo $term->term_id; ?>"
+                                                           type="checkbox"
                                                            value="<?php echo $term->term_id; ?>">
                                                     <label for="post-term-id-<?php echo $term->term_id; ?>"
                                                            class="checkbox-custom-label"><?php echo $term->name; ?></label>
                                                 </li>
-                                        <?php endforeach; ?>
-                                    <?php else: ?>
-                                        <li class="alert alert-warning">تاکنون دسته بندی برای مطالب اصلی ایجاد نشده است
-                                        </li>
-                                    <?php endif; ?>
-<!--                                    tech custom post type category-->
+                                            <?php endforeach; ?>
+                                        <?php else: ?>
+                                            <li class="alert alert-warning">تاکنون دسته بندی برای مطالب اصلی ایجاد نشده
+                                                است
+                                            </li>
+                                        <?php endif; ?>
+                                        <?php endif;?>
+                                    <!--                                    tech custom post type category-->
                                     <?php
+                                    if (is_page('technology') || is_archive()):
                                     unset($args);
                                     $args = [
                                         'taxonomy' => ['cat-tech'],
@@ -104,9 +109,11 @@
                                             </li>
                                         <?php endforeach; ?>
                                     <?php else: ?>
-                                        <li class="alert alert-warning">تاکنون دسته بندی برای مطالب تکنولوژی ایجاد نشده است
+                                        <li class="alert alert-warning">تاکنون دسته بندی برای مطالب تکنولوژی ایجاد نشده
+                                            است
                                         </li>
                                     <?php endif; ?>
+                                    <?php endif;?>
                                 </ul>
 
                                 <h4 class="side_title">نوع مطلب</h4>
@@ -116,17 +123,26 @@
                                         <label for="a-10" class="checkbox-custom-label">همه</label>
                                     </li>
                                     <li>
-                                        <input id="a-11" class="checkbox-custom meta-post-type" name="post-type" type="radio" value="2">
+                                        <input id="a-11" class="checkbox-custom meta-post-type" name="post-type"
+                                               type="radio" value="2">
                                         <label for="a-11" class="checkbox-custom-label">مقاله</label>
                                     </li>
                                     <li>
-                                        <input id="a-12" class="checkbox-custom meta-post-type" name="post-type" type="radio" value="1">
+                                        <input id="a-12" class="checkbox-custom meta-post-type" name="post-type"
+                                               type="radio" value="1">
                                         <label for="a-12" class="checkbox-custom-label">ویدیو</label>
                                     </li>
                                 </ul>
 
-                                <button type="submit" class="btn btn-theme full-width mb-2" id="archive_filter_btn">فیلتر کن</button>
+                                <button type="submit" class="btn btn-theme full-width mb-2" id="archive_filter_btn">
+                                    فیلتر کن
+                                </button>
                                 <input type="hidden" id="filter_content_query">
+                                <?php if (is_page('post')) {
+                                    echo '<input type="hidden" class="page-name" value="post">';
+                                } elseif (is_page('technology')) {
+                                    echo '<input type="hidden" class="page-name" value="tech">';
+                                }?>
                             </form>
 
                         </div>

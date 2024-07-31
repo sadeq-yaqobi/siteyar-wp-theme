@@ -25,6 +25,7 @@
                 <!--                    showing tech post by loop-->
                 <?php get_template_part('/loop/index/tech-loop', 'tech-loop') ?>
             </div>
+        <p class="text-center"><a href="<?php echo site_url('technology') ?>">همه مطالب</a></p>
     </div>
 
 

@@ -5,7 +5,13 @@
             <div class="col-lg-12 col-md-12">
 
                 <div class="breadcrumbs-wrap">
-                    <h1 class="breadcrumb-title">آرشیو</h1>
+                    <h1 class="breadcrumb-title"><?php
+                        if(is_page()){
+                            echo get_post_field('post_title');
+                        }else{
+                            echo 'آرشیو';
+                        }
+                        ?></h1>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <!--<li class="breadcrumb-item"><a href="#">خانه</a></li>
