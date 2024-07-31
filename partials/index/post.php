@@ -22,7 +22,7 @@
                 </div>
             </div>
         </div>
-        <p class="text-center"><a href="#">همه مطالب</a></p>
+        <p class="text-center"><a href="<?php echo site_url('post')?>">همه مطالب</a></p>
     </div>
 
 </section>

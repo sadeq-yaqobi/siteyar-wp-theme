@@ -20,54 +20,81 @@ function sy_filter_content()
     $user_ids = isset($_POST['userID']) ? array_map('intval', $_POST['userID']) : [];
     $post_term_ids = isset($_POST['postTermID']) ? array_map('intval', $_POST['postTermID']) : [];
     $tech_term_ids = isset($_POST['techTermID']) ? array_map('intval', $_POST['techTermID']) : [];
-    $post_types =$_POST['postType'] ?? '';
+    $meta_post_types =$_POST['metaPostType'] ?? '';
     $filter_content_query = $_POST['filterContentQuery'] ?? '';
+    $page_name = $_POST['pageName'];
+
+
 
     // Build query arguments based on the input data
-    if (empty($post_term_ids) && empty($tech_term_ids) && empty($post_types) && empty($user_ids) || $filter_content_query == '1') {
+    if (empty($post_term_ids) && empty($tech_term_ids) && empty($meta_post_types) && empty($user_ids) || $filter_content_query == '1') {
         update_option('_sy_filter_content', '1');
         // Case: No specific filters provided
+        if (!empty($page_name)) {
+            $post_type = $page_name;
+        }else{
+            $post_type = ['post', 'tech'];
+        }
         $args = [
-            'post_type' => ['post', 'tech'],
+            'post_type' => $post_type,
             'posts_per_page' => 3,
-            'paged' => $_POST['paged']
+            'paged' => $_POST['paged'],
+            'status'=>'publish'
         ];
     } elseif (empty($post_term_ids) && empty($tech_term_ids) && empty($user_ids) || $filter_content_query == '2') {
         update_option('_sy_filter_content', '2');
         // Case: Filter by post types only
+        if (!empty($page_name)) {
+            $post_type = $page_name;
+        }else{
+            $post_type = ['post', 'tech'];
+        }
         $args = [
-            'post_type' => ['post', 'tech'],
+            'post_type' => $post_type,
             'posts_per_page' => 3,
             'paged' => $_POST['paged'],
+            'status'=>'publish',
             'meta_query' => [
                 [
                     'key' => '_sy_post_types',
-                    'value' => $post_types,
+                    'value' => $meta_post_types,
                     'compare' => 'LIKE'
                 ]
             ]
         ];
-    } elseif (empty($post_term_ids) && empty($tech_term_ids) && empty($post_types) || $filter_content_query == '3') {
+    } elseif (empty($post_term_ids) && empty($tech_term_ids) && empty($meta_post_types) || $filter_content_query == '3') {
         update_option('_sy_filter_content', '3');
         // Case: Filter by user IDs only
+        if (!empty($page_name)) {
+            $post_type = $page_name;
+        }else{
+            $post_type = ['post', 'tech'];
+        }
         $args = [
-            'post_type' => ['post', 'tech'],
+            'post_type' => $post_type,
             'posts_per_page' => 3,
             'paged' => $_POST['paged'],
+            'status'=>'publish',
             'author__in' => $user_ids,
         ];
     } elseif (empty($post_term_ids) && empty($tech_term_ids) || $filter_content_query == '4') {
         update_option('_sy_filter_content', '4');
         // Case: Filter by user IDs and post types
+        if (!empty($page_name)) {
+            $post_type = $page_name;
+        }else{
+            $post_type = ['post', 'tech'];
+        }
         $args = [
-            'post_type' => ['post', 'tech'],
+            'post_type' => $post_type,
             'posts_per_page' => 3,
             'paged' => $_POST['paged'],
             'author__in' => $user_ids,
+            'status'=>'publish',
             'meta_query' => [
                 [
                     'key' => '_sy_post_types',
-                    'value' => $post_types,
+                    'value' => $meta_post_types,
                     'compare' => 'LIKE'
                 ]
             ]
@@ -75,11 +102,17 @@ function sy_filter_content()
     } else {
         update_option('_sy_filter_content', '5');
         // Case: Filter by term IDs, user IDs, and post types
+        if (!empty($page_name)) {
+            $post_type = $page_name;
+        }else{
+            $post_type = ['post', 'tech'];
+        }
         $args = [
-            'post_type' => ['post', 'tech'],
+            'post_type' => $post_type,
             'posts_per_page' => 3,
             'paged' => $_POST['paged'],
             'author__in' => $user_ids,
+            'status'=>'publish',
             'tax_query' => [
                 'relation' => 'OR',
                 [
@@ -98,7 +131,7 @@ function sy_filter_content()
             'meta_query' => [
                 [
                     'key' => '_sy_post_types',
-                    'value' => $post_types,
+                    'value' => $meta_post_types,
                     'compare' => 'LIKE'
                 ]
             ]

@@ -241,7 +241,7 @@
 
 <!-- WordPress function for essential footer elements -->
 <?php wp_footer() ?>
-<?php if (is_archive()): ?>
+<?php if (is_archive() || is_page()): ?>
 <!--------------archive--------------------->
     <script>
         function openNav() {
