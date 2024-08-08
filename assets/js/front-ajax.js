@@ -1,10 +1,10 @@
 jQuery(document).ready(function ($) {
-
+    let ajaxNonce = ajax._nonce;
     // Functionality for filtering tech posts using AJAX
     $('#post-tech-filter').on('change', function () {
         // Get the selected option value and AJAX nonce
         let selectedOption = $(this).find('option:selected').val();
-        let ajaxNonce = ajax._nonce;
+
 
         // AJAX request to filter posts
         $.ajax({
@@ -69,7 +69,7 @@ jQuery(document).ready(function ($) {
                 postTermID: postTermID,
                 techTermID: techTermID,
                 metaPostType: metaPostType,
-                pageName:pageName,
+                pageName: pageName,
                 _nonce: ajax._nonce
             },
             beforeSend: function () {
@@ -150,7 +150,7 @@ jQuery(document).ready(function ($) {
                 postType: postType,
                 paged: currentPage,
                 filterContentQuery: filterContentQuery,
-                pageName:pageName,
+                pageName: pageName,
                 _nonce: ajax._nonce
 
             },
@@ -169,7 +169,7 @@ jQuery(document).ready(function ($) {
                             currentPage = 1;
                         }
 
-                      
+
                         // console.log(response.content);
                     } else {
                         $('#filter-content').html('<div class="alert alert-info">مطلبی یافت نشد</div>');
@@ -208,7 +208,7 @@ jQuery(document).ready(function ($) {
             data: {
                 action: 'sy_more_content',
                 paged: currentPage,
-                pageSlug:pageSlug,
+                pageSlug: pageSlug,
                 _nonce: ajax._nonce
 
             },
@@ -250,6 +250,97 @@ jQuery(document).ready(function ($) {
                 $('#filter-content').removeClass('op-3');
                 $('.load-more-icon').addClass('d-none');
             },
+        });
+    });
+
+//sending contact us form data by ajax
+    $('#contact-form').on('submit', function (e) {
+        e.preventDefault();
+
+        let fullName = $('[name=contact_full_name]').val();//catching input data by name attribute
+        let email = $('[name=contact_email]').val();//catching input data by name attribute
+        let title = $('[name=contact_title]').val();//catching input data by name attribute
+        let message = $('[name=contact_message]').val();//catching input data by name attribute
+
+
+        $.ajax({
+            url: ajax.ajaxurl,
+            type: 'post',
+            datatype: 'json',
+            data: {
+                action: 'sy_contact',
+                fullName: fullName,
+                email: email,
+                title: title,
+                message: message,
+                _nonce: ajaxNonce,
+            },
+            beforeSend: function () {
+                $('.load-more-icon').removeClass('d-none')
+            },
+            success: function (response) {
+                if (response.success) {
+                    // alert(response.message);
+
+                    $.toast({
+                        text: response.message, // Text that is to be shown in the toast
+                        heading: ' ', // Optional heading to be shown on the toast
+                        icon: 'success', // Type of toast icon
+                        showHideTransition: 'slide', // fade, slide or plain
+                        allowToastClose: true, // Boolean value true or false
+                        hideAfter: 4000, // false to make it sticky or number representing the miliseconds as time after which toast needs to be hidden
+                        stack: 5, // false if there should be only one toast at a time or a number representing the maximum number of toasts to be shown at a time
+                        position: 'top-left', // bottom-left or bottom-right or bottom-center or top-left or top-right or top-center or mid-center or an object representing the left, right, top, bottom values
+
+
+                        textAlign: 'right',  // Text alignment i.e. left, right or center
+                        loader: true,  // Whether to show loader or not. True by default
+                        loaderBg: '#9EC600',  // Background color of the toast loader
+                        beforeShow: function () {
+                        }, // will be triggered before the toast is shown
+                        afterShown: function () {
+                        }, // will be triggered after the toat has been shown
+                        beforeHide: function () {
+                        }, // will be triggered before the toast gets hidden
+                        afterHidden: function () {
+                        }  // will be triggered after the toast has been hidden
+                    });
+
+                }
+            },
+            error: function (error) {
+                if (error) {
+
+                    $.toast({
+                        text: error.responseJSON.message, // Text that is to be shown in the toast
+                        heading: '  ', // Optional heading to be shown on the toast
+                        icon: 'error', // Type of toast icon
+                        showHideTransition: 'slide', // fade, slide or plain
+                        allowToastClose: true, // Boolean value true or false
+                        hideAfter: 4000, // false to make it sticky or number representing the miliseconds as time after which toast needs to be hidden
+                        stack: 5, // false if there should be only one toast at a time or a number representing the maximum number of toasts to be shown at a time
+                        position: 'top-left', // bottom-left or bottom-right or bottom-center or top-left or top-right or top-center or mid-center or an object representing the left, right, top, bottom values
+
+
+                        textAlign: 'right',  // Text alignment i.e. left, right or center
+                        loader: true,  // Whether to show loader or not. True by default
+                        loaderBg: '#9EC600',  // Background color of the toast loader
+                        beforeShow: function () {
+                        }, // will be triggered before the toast is shown
+                        afterShown: function () {
+                        }, // will be triggered after the toat has been shown
+                        beforeHide: function () {
+                        }, // will be triggered before the toast gets hidden
+                        afterHidden: function () {
+                        }  // will be triggered after the toast has been hidden
+                    });
+
+                }
+            },
+            complete: function () {
+                $('.load-more-icon').addClass('d-none')
+            }
+
         });
     });
 

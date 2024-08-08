@@ -63,6 +63,8 @@ include_once 'helper-class/DebugHelper.php';
 // Include pagination helper class
 include_once 'helper-class/Pagination.php';
 
+include_once 'helper-class/MailLayout.php';
+
 // include php function that handles ajax request to show the most popular posts
 include_once 'loop/index/tech-most-popular-loop.php';
 
@@ -87,6 +89,11 @@ include_once 'loop/filter-content/filter-content-html-output.php';
 // include php function that handles showing post in tech archive page by ajax- load more button
 include_once 'loop/archive/archive-loop-ajax.php';
 
+//include php file to handle contact us functionality by ajax
+include_once 'partials/contact/contact-ajax.php';
+
+// configuration to send email
+include_once '_inc/send-mail/send-mail-config.php';
 
 add_filter('use_block_editor_for_post', '__return_false');
 add_filter('use_widgets_block_editor', '__return_false');
