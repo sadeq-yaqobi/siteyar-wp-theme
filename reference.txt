@@ -4,5 +4,8 @@ https://github.com/wp-bootstrap/wp-bootstrap-navwalker
 # How to use nav walker with BOOTSTRAP 4
 https://www.yogihosting.com/integrate-bootstrap-menu-wordpress-website/
 
-How to use nav walker with BOOTSTRAP 5
+# How to use nav walker with BOOTSTRAP 5
 https://wpknifer.com/wordpress-navigation-menu/
+
+#Jquery Toast Plugin
+https://kamranahmed.info/toast

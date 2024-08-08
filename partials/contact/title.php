@@ -5,11 +5,18 @@
             <div class="col-lg-12 col-md-12">
 
                 <div class="breadcrumbs-wrap">
-                    <h1 class="breadcrumb-title">تماس با ما</h1>
+                    <h1 class="breadcrumb-title">
+                        <?php
+                        if (is_page()) {
+                            echo get_post_field('post_title');
+                        }
+                        ?>
+                    </h1>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="#">خانه</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">تماس با ما</li>
+                            <!--                            <li class="breadcrumb-item"><a href="#">خانه</a></li>-->
+                            <!--                            <li class="breadcrumb-item active" aria-current="page">تماس با ما</li>-->
+                            <?php Breadcrumb::get_breadcrumb(); ?>
                         </ol>
                     </nav>
                 </div>

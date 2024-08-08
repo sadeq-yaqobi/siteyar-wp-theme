@@ -12088,3 +12088,17 @@ span.cat-count {
     transition: all .4s ease-in-out;
 }
 
+.jq-toast-wrap{
+    width: 300px;
+}
+.jq-toast-single {
+    font-family: 'IRANSans', sans-serif;
+    border-radius:8px;
+    font-size: 14px;
+    line-height: 32px;
+    padding:4px 15px 10px 50px
+}
+.close-jq-toast-single {
+    top: -2px;
+display:none;
+}

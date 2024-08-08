@@ -28,6 +28,10 @@ function sy_register_assets()
         wp_register_style('bootstrap-4', get_stylesheet_directory_uri() . '/assets/css/bootstrap.min.css', '', '4.0.0');
         wp_enqueue_style('bootstrap-4');
 
+        //  jquery toast plugin
+        wp_register_style('jquery-toast', get_stylesheet_directory_uri() . '/assets/css/jquery.toast.min.css', '', '1.0.0');
+        wp_enqueue_style('jquery-toast');
+
         // custom style - style and colors files
         wp_register_style('main-style', get_stylesheet_directory_uri() . '/style.css', '', '1.0.0');
         wp_enqueue_style('main-style');
@@ -64,6 +68,10 @@ function sy_register_assets()
         wp_register_script('counter-up', get_template_directory_uri() . '/assets/js/counterup.min.js', '', '1.0', ['strategy' => 'async', 'in_footer' => true]);
         wp_enqueue_script('counter-up');
 
+        // jquery toast plugin
+        wp_register_script('jquery-toast', get_template_directory_uri() . '/assets/js/jquery.toast.min.js', ['jquery'], '1.0.0', ['strategy' => 'async', 'in_footer' => true]);
+        wp_enqueue_script('jquery-toast');
+
         // custom js
         wp_register_script('custom', get_template_directory_uri() . '/assets/js/custom.js', ['jquery'], '1.0.0', ['strategy' => 'async', 'in_footer' => true]);
         wp_enqueue_script('custom');
@@ -78,7 +86,6 @@ function sy_register_assets()
         'ajaxurl' => admin_url('admin-ajax.php'),
         '_nonce' => wp_create_nonce()
     ]);
-
 }
 
 
