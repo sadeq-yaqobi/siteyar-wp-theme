@@ -25,7 +25,7 @@ function sy_contact()
 
     // Validating Google reCAPTCHA
     $recaptcha = $_POST['recaptcha'];
-    $secret_key = '6Lf0tiMqAAAAADsF99XvwngBixYyJwsVZcGZXPG_';
+    $secret_key = 'your secret key';
     $url = 'https://www.google.com/recaptcha/api/siteverify?secret='
         . $secret_key . '&response=' . $recaptcha;
 
