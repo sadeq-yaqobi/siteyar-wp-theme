@@ -9,3 +9,6 @@ https://wpknifer.com/wordpress-navigation-menu/
 
 #Jquery Toast Plugin
 https://kamranahmed.info/toast
+
+# Google RECAPTCH tutorial
+https://www.geeksforgeeks.org/google-recaptcha-integration-in-php/

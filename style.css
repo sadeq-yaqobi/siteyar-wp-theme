@@ -12093,12 +12093,26 @@ span.cat-count {
 }
 .jq-toast-single {
     font-family: 'IRANSans', sans-serif;
-    border-radius:8px;
+    border-radius: 8px;
     font-size: 14px;
     line-height: 32px;
-    padding:4px 15px 10px 50px
+    padding: 4px 15px 10px 50px
 }
+
 .close-jq-toast-single {
     top: -2px;
-display:none;
+    display: none;
+}
+
+.jq-toast-heading {
+    font-family: 'IRANSans', sans-serif!important;
+    font-size: 16px;
+    font-weight: normal;
+}
+
+.contact-btn-wrapper {
+    display: flex;
+    justify-content: end;
+    align-items: flex-end;
+    flex-direction: column-reverse;
 }

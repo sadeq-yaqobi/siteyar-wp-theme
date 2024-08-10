@@ -261,6 +261,7 @@ jQuery(document).ready(function ($) {
         let email = $('[name=contact_email]').val();//catching input data by name attribute
         let title = $('[name=contact_title]').val();//catching input data by name attribute
         let message = $('[name=contact_message]').val();//catching input data by name attribute
+        let recaptcha = $('[name=g-recaptcha-response]').val();//catching input data by name attribute
 
 
         $.ajax({
@@ -273,6 +274,7 @@ jQuery(document).ready(function ($) {
                 email: email,
                 title: title,
                 message: message,
+                recaptcha:recaptcha,
                 _nonce: ajaxNonce,
             },
             beforeSend: function () {
@@ -313,7 +315,7 @@ jQuery(document).ready(function ($) {
 
                     $.toast({
                         text: error.responseJSON.message, // Text that is to be shown in the toast
-                        heading: '  ', // Optional heading to be shown on the toast
+                        heading: error.responseJSON.title, // Optional heading to be shown on the toast
                         icon: 'error', // Type of toast icon
                         showHideTransition: 'slide', // fade, slide or plain
                         allowToastClose: true, // Boolean value true or false
