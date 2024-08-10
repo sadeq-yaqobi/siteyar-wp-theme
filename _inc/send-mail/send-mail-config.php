@@ -13,8 +13,8 @@ function my_phpmailer_example( $phpmailer ) {
     $phpmailer->Port = 2525; // Common ports: 25, 587 (STARTTLS), 465 (SSL)
 
     // Provide the SMTP username and password for authentication
-    $phpmailer->Username = 'e8bf6768ac26ba'; // Your SMTP username
-    $phpmailer->Password = '9a07150767d940'; // Your SMTP password
+    $phpmailer->Username = 'Your SMTP username'; // Your SMTP username
+    $phpmailer->Password = 'Your SMTP password'; // Your SMTP password
 
     // Uncomment the line below if using encryption for SMTP (recommended)
     // $phpmailer->SMTPSecure = 'tls'; // Choose 'ssl' for SMTPS on port 465, or 'tls' for SMTP+STARTTLS on port 25 or 587
