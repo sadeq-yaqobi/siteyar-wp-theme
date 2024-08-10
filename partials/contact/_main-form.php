@@ -38,7 +38,7 @@
                 <div class="row">
                     <div class="col-lg-6 col-md-12">
                         <div class="form-group">
-                            <div class="g-recaptcha" data-sitekey="6Lf0tiMqAAAAAMsCgbtD2FQhc7fUvH_qrwIVLeUY"></div>
+                            <div class="g-recaptcha" data-sitekey="Your google recaptcha Site Key"></div>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-12 contact-btn-wrapper">
