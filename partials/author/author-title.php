@@ -17,7 +17,7 @@ set_query_var('author_id',$author->ID);
             <div class="col-lg-12 col-md-12">
                 <div class="viewer_detail_wraps">
                     <div class="viewer_detail_thumb">
-                        <?php  echo get_avatar($author->ID,150,'',$author->display_name,['class'=>'img-fluid']);?>
+                        <?php  echo sy_author_avatar($author->ID,150,$author->display_name);?>
                         <div class="viewer_status"><?php
                             switch ($author->roles[0]) {
                                 case 'administrator':

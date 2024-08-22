@@ -44,7 +44,7 @@
                         <div class="education_block_footer">
                             <div class="education_block_author">
                                 <div class="path-img"><a href="">
-                                        <?php echo get_avatar(get_the_author_meta('user_email'), 35, '', get_the_author(), ['class' => 'img-fluid']) ?>
+                                        <?php echo sy_author_avatar(get_the_author_meta('user_email'), 35,  get_the_author()) ?>
 
                                     </a></div>
                                 <h5><?php echo get_the_author_posts_link()?></h5>

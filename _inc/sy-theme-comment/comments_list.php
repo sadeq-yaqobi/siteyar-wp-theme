@@ -7,7 +7,9 @@ function sy_theme_comment($comment, $args)
     <li id="comment-<?php echo $comment->comment_ID; ?>" <?php comment_class('article_comments_wrap') ?>>
         <article>
             <div class="article_comments_thumb">
-                <?php echo get_avatar($comment->comment_author_email, $args['avatar_size'], '', $comment->comment_author/*,['class'=>'test']*/) ?>
+<!--                --><?php //echo get_avatar($comment->comment_author_email, $args['avatar_size'], '', $comment->comment_author/*,['class'=>'test']*/) ?>
+                <span class="img img-fluid"><?php echo sy_author_avatar(get_the_author_meta('email'),'70',get_the_author_meta('display_name'))?></span>
+
             </div>
             <div class="comment-details">
                 <div class="comment-meta">

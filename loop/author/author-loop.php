@@ -140,7 +140,7 @@
                                     <?php foreach ($the_comments as $the_comment): ?>
                                         <div class="reviews-comments-item">
                                             <div class="review-comments-avatar">
-                                                <?php echo get_avatar($the_comment->comment_author_email, 80, '', $the_comment->comment_author, ['class' => 'img-fluid']) ?>
+                                                <?php echo sy_author_avatar($the_comment->comment_author_email, 80,  $the_comment->comment_author) ?>
                                             </div>
                                             <div class="reviews-comments-item-text">
                                                 <h5>

@@ -22,7 +22,7 @@ $the_query = new WP_Query($args);
             <h4><?php the_title() ?></h4>
             <div class="articles_grid_author">
                 <div class="articles_grid_author_img">
-                    <?php echo get_avatar( get_the_author_meta('user_email'),40,'',get_the_author(),['class'=>'img-fluid'])?>
+                    <?php echo sy_author_avatar( get_the_author_meta('user_email'),40,get_the_author())?>
 
                 </div>
                 <h4><?php the_author();?></h4>

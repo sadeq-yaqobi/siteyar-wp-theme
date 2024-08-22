@@ -12101,7 +12101,10 @@ span.cat-count {
 
 .close-jq-toast-single {
     top: -2px;
-    display: none;
+    right: 281px!important;
+
+    font-size: 15px;
+
 }
 
 .jq-toast-heading {

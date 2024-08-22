@@ -45,14 +45,29 @@ function sy_more_setting_html($post)
             <label for="post-category">دسته بندی</label>
             <?php
             $category_id = get_post_meta($post->ID, '_sy_post_cat', true);
-            wp_dropdown_categories([
-                'show_option_all' => 'یک گزینه را انتخاب کنید',
-                'name' => 'post_cat',
-                'id' => 'post-category',
-                'selected' => $category_id,
-                'show_count' => 1,
-                'required'=>true,
-            ]);
+            if ($post->post_type == 'post') {
+                wp_dropdown_categories([
+                    'show_option_all' => 'یک گزینه را انتخاب کنید',
+                    'name' => 'post_cat',
+                    'id' => 'post-category',
+                    'selected' => $category_id,
+                    'show_count' => 1,
+                    'required'=>true,
+                ]);
+            }
+            //to show tech custom post type categories
+            elseif ($post->post_type == 'tech') {
+                wp_dropdown_categories([
+                    'show_option_all' => 'یک گزینه را انتخاب کنید',
+                    'name' => 'post_cat',
+                    'id' => 'post-category',
+                    'selected' => $category_id,
+                    'show_count' => 1,
+                    'required'=>true,
+                    'taxonomy'=>'cat-tech'
+                ]);
+            }
+
             ?>
 
         </div>

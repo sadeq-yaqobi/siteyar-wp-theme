@@ -22,7 +22,9 @@
                     </ul>
                 <?php else: ?>
                     <ul class="nav-menu align-to-left" dir="ltr">
-                        <li id="profileName"><a href="#" class="profile-link"><span class="profile-name">صادق یعقوبی</span><img src="<?php echo get_template_directory_uri() . '/assets/img/user-1.jpg' ?>"  class="circle " width="30" alt=""><span class="submenu-indicator"></span></a>
+<!--                        <li id="profileName"><a href="#" class="profile-link"><span class="profile-name">صادق یعقوبی</span><img src="--><?php //echo get_template_directory_uri() . '/assets/img/user-1.jpg' ?><!--"  class="circle " width="30" alt=""><span class="submenu-indicator"></span></a>-->
+                        <li id="profileName"><a href="#" class="profile-link"><span class="profile-name"><?php echo wp_get_current_user()->display_name;?></span><?php echo sy_author_avatar(wp_get_current_user()->user_email,30,wp_get_current_user()->display_name,'circle')?><span class="submenu-indicator"></span></a>
+
                             <ul dir="ltr" class="nav-dropdown nav-submenu">
                                 <li><a href="dashboard.html">پنل مدیریت<span class="submenu-indicator"></span></a>
                                     <ul class="nav-dropdown nav-submenu profile-sub-dropdown">

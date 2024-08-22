@@ -7,61 +7,73 @@ class Breadcrumb
 {
     public static function get_breadcrumb()
     {
-        // Home breadcrumb
         echo '<li class="breadcrumb-item"><a href="' . home_url() . '" rel="nofollow">خانه</a></li>';
 
-        // Category, Single Post, or Archive breadcrumb
-        if (is_category() || is_single() || is_archive() || is_tag()) {
-            // Get category information by custom meta box
-          /*  $category_id = get_post_meta(get_the_ID(), '_sy_post_cat', true);
-            if ($category_id) {
-                echo '&nbsp;&#187;&nbsp';
-                echo '<li><a href="' . get_category_link($category_id) . '" >' . get_the_category_by_ID($category_id) . '</a></li>';
-            } else {
-                echo '';
-            }*/
-            //category and taxonomy breadcrumb
-            if (is_category() || is_tax()) {
-                echo '&nbsp;&#187;&nbsp';
-                echo '<li>' . single_cat_title() . '</li>';
-            }
+        if (is_single()) {
+            self::single_breadcrumb();
+        } elseif (is_page()) {
+            self::page_breadcrumb();
+        } elseif (is_search()) {
+            self::search_breadcrumb();
+        } elseif (is_404()) {
+            self::error_breadcrumb();
+        } elseif (is_category() || is_tax()) {
+            self::category_breadcrumb();
+        } elseif (is_tag()) {
+            self::tag_breadcrumb();
+        } elseif (is_archive()) {
+            self::archive_breadcrumb();
+        }
+    }
 
-            // Single Post breadcrumb
-            if (is_single()) {
-                echo '&nbsp;&#187;&nbsp';
-                the_title('<li>', '</li>');
-            }
-            //archive
-            if (is_archive()) {
-                echo '&nbsp;&#187;&nbsp';
-                echo 'آرشیو مطالب ';
-                if (is_year()) {
-                    echo get_the_date('Y');
-                } elseif (is_month()) {
-                    echo get_the_date('F Y');
-                } else {
-                    echo get_the_date('j F Y');
-                }
-            }
-            // tag breadcrumb
-            if (is_tag()) {
-                echo '&nbsp;&#187;&nbsp';
-                echo '<li>' . single_tag_title() . '</li>';
-            }
-        } // Page breadcrumb
-        elseif (is_page()) {
-            echo '&nbsp;&#187;&nbsp';
-            the_title('<li>', '</li>');
-        } // Search breadcrumb
-        elseif (is_search()) {
-            echo '&nbsp;&#187;&nbsp';
-            echo '<em>';
-             the_search_query();
-            echo '</em>';
-        } // 404 page breadcrumb
-        elseif (is_404()) {
-            echo '&nbsp;&#187;&nbsp';
-            echo 'خطای 404: صفحه پیدا نشد';
+    private static function single_breadcrumb()
+    {
+        $category_id = get_post_meta(get_the_ID(), '_sy_post_cat', true);
+        if ($category_id) {
+        echo '&nbsp;&#187;&nbsp;<li><a href="' . get_category_link($category_id) . '">' . get_the_category_by_ID($category_id) . '</a></li>';
+        }else{
+            echo '&nbsp;&#187;&nbsp;دسته‌بندی نشده';
+        }
+        echo '&nbsp;&#187;&nbsp;';
+        the_title('<li>', '</li>');
+    }
+
+    private static function page_breadcrumb()
+    {
+        echo '&nbsp;&#187;&nbsp;';
+        the_title('<li>', '</li>');
+    }
+
+    private static function search_breadcrumb()
+    {
+        echo '&nbsp;&#187;&nbsp;<em>' . get_search_query() . '</em>';
+    }
+
+    private static function error_breadcrumb()
+    {
+        echo '&nbsp;&#187;&nbsp;خطای 404: صفحه پیدا نشد';
+    }
+
+    private static function category_breadcrumb()
+    {
+        echo '&nbsp;&#187;&nbsp;<li>' . single_cat_title('', false) . '</li>';
+    }
+
+    private static function tag_breadcrumb()
+    {
+        echo '&nbsp;&#187;&nbsp;<li>' . single_tag_title('', false) . '</li>';
+    }
+
+    private static function archive_breadcrumb()
+    {
+        echo '&nbsp;&#187;&nbsp;آرشیو مطالب ';
+
+        if (is_year()) {
+            echo get_the_date('Y');
+        } elseif (is_month()) {
+            echo get_the_date('F Y');
+        } else {
+            echo get_the_date('j F Y');
         }
     }
 }

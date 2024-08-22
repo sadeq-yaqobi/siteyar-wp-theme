@@ -80,6 +80,7 @@ jQuery(document).ready(function ($) {
             success: function (response) {
                 if (response.success) {
                     // Actions to handle successful response
+                    $('.breadcrumb').html('<li class="breadcrumb-item"><a href="\' . home_url() . \'" rel="nofollow">خانه</a></li>&nbsp;&#187;&nbsp;جستجو پیشرفته ')
                     if (response.content != null) {
                         if (currentPage >= response.max_page) {
                             $('#load_more_btn').hide();

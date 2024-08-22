@@ -39,6 +39,8 @@ include_once '_inc/user/user-resume.php';
 //include file that was used to modify main wordPress query
 include_once '_inc/modify-queries/modify-queries.php';
 
+include_once '_inc/author/author-avatar.php';
+
 //Include breadcrumb class
 include_once 'class/breadcrumb/Breadcrumb.php';
 

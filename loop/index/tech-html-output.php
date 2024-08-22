@@ -13,7 +13,7 @@ function sy_tech_html_output(): string
                         <h4>' . get_the_title() . '</h4>
                         <div class="articles_grid_author">
                             <div class="articles_grid_author_img">
-' . get_avatar(get_the_author_meta('user_email'), 40, '', get_the_author(), ['class' => 'img-fluid']) . '
+' . sy_author_avatar(get_the_author_meta('user_email'), 40, get_the_author()) . '
 </div>
                             <h4>' . get_the_author() . '</h4>
                         </div>
