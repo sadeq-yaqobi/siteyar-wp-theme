@@ -12119,3 +12119,14 @@ span.cat-count {
     align-items: flex-end;
     flex-direction: column-reverse;
 }
+
+.toast-link {
+    color: #bac0c9!important;
+    border-bottom: none!important;
+    font-weight: 400!important;
+
+}
+.toast-link:hover {
+    color: #d9edf7!important;
+
+}

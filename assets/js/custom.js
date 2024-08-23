@@ -4,7 +4,7 @@ jQuery(function($) {
 	//welcome message
 	jQuery(window).on('load', function() {
 		$.toast({
-			text:'<span style="font-size: 12px;">قالب در حال توسعه می‌باشد و برخی از ویژگی‌ها به طور کامل پیاده سازی نشده است.</span>' , // Text that is to be shown in the toast
+			text:'<span style="font-size: 12px;">قالب در حال توسعه است و برخی از ویژگی‌های آن به طور کامل پیاده سازی نشده است!<br> <a title="مشاهده کدهای قالب در گیت‌هاب" class="toast-link" href="https://github.com/sadeq-yaqobi/siteyar-wp-theme"><span>مشاهده سورس‌کد قالب در گیت‌هاب <i class="fab fa-github"></i></span></a></span>' , // Text that is to be shown in the toast
 			heading: ' ', // Optional heading to be shown on the toast
 			icon: 'info', // Type of toast icon
 			showHideTransition: 'slide', // fade, slide or plain

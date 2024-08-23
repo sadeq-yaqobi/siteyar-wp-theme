@@ -1,6 +1,6 @@
-<div class="article_detail_wrapss single_article_wrap format-standard">
+<div class="article_detail_wrapss single_article_wrap format-standard" id="comments">
 
-    <div class="comment-area">
+    <div class="comment-area" >
         <div class="all-comments">
             <?php if (get_comments_number() == 0): ?>
                 <h4 class="comments-title">اولین نفری باشید که برای این مطلب دیدگاه می‌گذارید</h4>
