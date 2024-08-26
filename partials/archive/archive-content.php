@@ -21,12 +21,10 @@
                     </div>';
             } ?>
 
-
             <!--  <?php /*$post_count = wp_count_posts('tech')->publish */ ?>
             <div class="col-lg-6 col-md-6 col-sm-12">تعداد مطالب یافت شده: <strong
                         class="badge badge-light py-1 px-2 num-post-found"><?php /*echo $post_count ?: '0' */ ?></strong>
             </div>-->
-
 
             <div class="col-lg-6 col-md-6 col-sm-12 ordering">
                 <div class="filter_wraps">
@@ -81,9 +79,7 @@
             </div>
         </div>
         <!-- /Row -->
-
     </div>
-
 </div>
 <!-- Row -->
 </div>

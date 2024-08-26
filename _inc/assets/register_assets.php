@@ -6,6 +6,7 @@ add_action('admin_enqueue_scripts', 'sy_register_assets');
 function sy_register_assets()
 {
     define("SY_THEME_ASSETS_STYLE", get_stylesheet_directory_uri() . '/assets/css/');
+
     define("SY_THEME_ASSETS_JS", get_template_directory_uri() . '/assets/js/');
     //<----- REGISTER AND ENQUEUE CSS ----->
     if (!is_admin()) {
@@ -16,8 +17,6 @@ function sy_register_assets()
         //  jquery toast plugin
         wp_register_style('jquery-toast', SY_THEME_ASSETS_STYLE . 'jquery.toast.min.css', '', '1.0.0');
         wp_enqueue_style('jquery-toast');
-
-
 
         // custom style - style and colors files
         wp_register_style('theme_colors', SY_THEME_ASSETS_STYLE. 'colors.min.css', '', '1.0.0');
@@ -48,6 +47,7 @@ function sy_register_assets()
         wp_enqueue_script('select2');
 
         // slick-1.6.0
+
         wp_register_script('slick', SY_THEME_ASSETS_JS . 'slick.min.js', '', '1.6.0', ['strategy' => 'async', 'in_footer' => true]);
         wp_enqueue_script('slick');
 
