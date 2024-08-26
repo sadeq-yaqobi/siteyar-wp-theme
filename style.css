@@ -7355,11 +7355,16 @@ a.btn-br-more {
     bottom: 10px;
     right: 20px;
     text-align: center;
-    font-size: 15px;
-    border-radius: 4px;
+    font-size: 20px;
+    border-radius: 50%;
     text-decoration: none;
     background: #333c56;
     color: #fff;
+    transition: all .8s;
+}
+
+#back2Top:hover {
+    transform: translateY(-5px);
 }
 
 /*------------- Accordion ---------------*/
