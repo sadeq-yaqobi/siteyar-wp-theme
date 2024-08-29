@@ -5,7 +5,7 @@
         <nav id="navigation" class="navigation navigation-landscape">
             <div class="nav-header">
                 <a class="nav-brand" href="#">
-                    <img src="<?php echo get_template_directory_uri() . '/assets/img/'.(is_front_page()?'logo-light.png':'logo.png' )?>" class="logo" alt=""/>
+                    <img src="<?php echo get_template_directory_uri() . '/assets/img/webp/'.(is_front_page()?'logo-light.webp':'logo.webp' )?>" class="logo" alt=""/>
                 </a>
                 <div class="nav-toggle"></div>
             </div>
@@ -22,7 +22,7 @@
                     </ul>
                 <?php else: ?>
                     <ul class="nav-menu align-to-left" dir="ltr">
-<!--                        <li id="profileName"><a href="#" class="profile-link"><span class="profile-name">صادق یعقوبی</span><img src="--><?php //echo get_template_directory_uri() . '/assets/img/user-1.jpg' ?><!--"  class="circle " width="30" alt=""><span class="submenu-indicator"></span></a>-->
+<!--                        <li id="profileName"><a href="#" class="profile-link"><span class="profile-name">صادق یعقوبی</span><img src="--><?php //echo get_template_directory_uri() . '/assets/img/webp/user-1.webp' ?><!--"  class="circle " width="30" alt=""><span class="submenu-indicator"></span></a>-->
                         <li id="profileName"><a href="#" class="profile-link"><span class="profile-name"><?php echo wp_get_current_user()->display_name;?></span><?php echo sy_author_avatar(wp_get_current_user()->user_email,30,wp_get_current_user()->display_name,'circle')?><span class="submenu-indicator"></span></a>
 
                             <ul dir="ltr" class="nav-dropdown nav-submenu">

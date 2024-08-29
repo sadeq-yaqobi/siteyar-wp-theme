@@ -101,7 +101,7 @@ class MailLayout
 <body>
     <div class="container">
         <div class="header">
-            <img src="' . get_template_directory_uri() . '/assets/img/logo.png" alt="Logo">
+            <img src="' . get_template_directory_uri() . '/assets/img/webp/logo.webp" alt="Logo">
             <h1>پیام شما دریافت شد.</h1>
         </div>
         <div class="content">

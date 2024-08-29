@@ -1,5 +1,5 @@
 <!-- ============================== Start Newsletter ================================== -->
-<section class="bg-cover newsletter inverse-theme" style="background:url(<?php echo get_template_directory_uri().'/assets/img/banner-2.jpg' ?>);" data-overlay="9">
+<section class="bg-cover newsletter inverse-theme" style="background:url(<?php echo get_template_directory_uri().'/assets/img/webp/banner-2.webp' ?>);" data-overlay="9">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-7 col-md-8 col-sm-12">

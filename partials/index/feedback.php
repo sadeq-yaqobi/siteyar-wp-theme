@@ -69,7 +69,7 @@
                             <div class="bg-light rounded box-shadow">
                                 <div class="client-detail-box">
                                     <div class="pic pt-4 d-flex justify-content-around align-items-center">
-                                        <img src="<?php echo get_template_directory_uri().'/assets/img/user-1.jpg'?>" alt="">
+                                        <img src="<?php echo get_template_directory_uri().'/assets/img/webp/user-1.webp'?>" alt="">
                                         <div class="reviews-comments-item-text reviews-comments-item-text-custom">
                                             <h4>الهام پاکزاد</h4>
 
@@ -97,7 +97,7 @@
                             <div class="bg-light rounded box-shadow">
                                 <div class="client-detail-box">
                                     <div class="pic pt-4 d-flex justify-content-around align-items-center">
-                                        <img src="<?php echo get_template_directory_uri().'/assets/img/user-2.jpg'?>" alt="">
+                                        <img src="<?php echo get_template_directory_uri().'/assets/img/webp/user-2.webp'?>" alt="">
                                         <div class="reviews-comments-item-text reviews-comments-item-text-custom">
                                             <h4>الهام پاکزاد</h4>
 
@@ -125,7 +125,7 @@
                             <div class="bg-light rounded box-shadow">
                                 <div class="client-detail-box">
                                     <div class="pic pt-4 d-flex justify-content-around align-items-center">
-                                        <img src="<?php echo get_template_directory_uri().'/assets/img/user-4.jpg'?>" alt="">
+                                        <img src="<?php echo get_template_directory_uri().'/assets/img/webp/user-4.webp'?>" alt="">
                                         <div class="reviews-comments-item-text reviews-comments-item-text-custom">
                                             <h4>الهام پاکزاد</h4>
 
@@ -153,7 +153,7 @@
                             <div class="bg-light rounded box-shadow">
                                 <div class="client-detail-box">
                                     <div class="pic pt-4 d-flex justify-content-around align-items-center">
-                                        <img src="<?php echo get_template_directory_uri().'/assets/img/user-5.jpg'?>" alt="">
+                                        <img src="<?php echo get_template_directory_uri().'/assets/img/webp/user-5.webp'?>" alt="">
                                         <div class="reviews-comments-item-text reviews-comments-item-text-custom">
                                             <h4>الهام پاکزاد</h4>
 

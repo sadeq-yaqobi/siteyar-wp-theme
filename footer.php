@@ -5,7 +5,7 @@
             <div class="row">
                 <div class="col-lg-3 col-md-3">
                     <div class="footer-widget">
-                        <img src="<?php echo get_template_directory_uri() . '/assets/img/' . (is_front_page() ? 'logo.png' : 'logo-light.png') ?>"
+                        <img src="<?php echo get_template_directory_uri() . '/assets/img/webp' . (is_front_page() ? 'logo.webp' : 'logo-light.webp') ?>"
                              class="img-footer" alt=""/>
                         <div class="footer-add">
                             <p>تهران، خیابان سعادت آباد، خیابان کاج</p>
