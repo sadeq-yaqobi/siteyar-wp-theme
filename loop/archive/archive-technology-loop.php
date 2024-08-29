@@ -19,6 +19,7 @@
 
 // Loop through the posts and generate HTML output
         while ($the_query->have_posts()): $the_query->the_post(); ?>
+<<<<<<< HEAD
             <div class="col-lg-4 col-md-6">
                 <div class="education_block_grid">
                     <div class="education_block_thumb property_video">
@@ -30,6 +31,21 @@
                         <?php endif;
                         $post_type = get_post_meta(get_the_ID(), '_sy_post_types', true);
                         if ($post_type == 1) :?>
+=======
+
+            <div class="col-lg-4 col-md-6">
+                <div class="education_block_grid">
+                    <div class="education_block_thumb property_video">
+                        <a href=" <?php echo get_the_permalink() ?> "><?php echo sy_post_thumbnail() ?>  </a>
+                        <?php
+                        $post_cat = get_post_meta(get_the_ID(), '_sy_post_cat', true);
+                        if (!empty($post_cat)): ?>
+                            <div class="topic_level bg-warning text-white"> <?php get_the_category_by_ID($post_cat) ?> </div>
+                        <?php endif;
+                        $post_type = get_post_meta(get_the_ID(), '_sy_post_types', true);
+                        if ($post_type == 1) :?>
+
+>>>>>>> 1a90ab4 (main local)
                             <div class="overlay_icon">
                                 <div class="bb-video-box">
                                     <div class="bb-video-box-inner">
@@ -52,6 +68,10 @@
                         </h4>
                         <p><?php echo ExcerptPost::sy_excerpt_post_limit() ?></p>
                     </div>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 1a90ab4 (main local)
                     <div class="education_block_footer">
                         <div class="education_block_author">
                             <div class="path-img"><a href="">
