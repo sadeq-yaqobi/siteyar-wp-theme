@@ -27,7 +27,7 @@
                         <?php
                         $post_cat = get_post_meta(get_the_ID(), '_sy_post_cat', true);
                         if (!empty($post_cat)): ?>
-                            <div class="topic_level bg-warning text-white"> <?php get_the_category_by_ID($post_cat) ?> </div>
+                            <div class="topic_level bg-warning text-white"> <?php echo get_the_category_by_ID($post_cat) ?> </div>
                         <?php endif;
                         $post_type = get_post_meta(get_the_ID(), '_sy_post_types', true);
                         if ($post_type == 1) :?>
