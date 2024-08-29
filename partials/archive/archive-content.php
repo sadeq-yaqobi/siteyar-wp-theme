@@ -36,7 +36,7 @@
                                id="open2"><span><i class="fas fa-arrow-alt-circle-right"></i></span>باکس فیلتر</a>
                         </div>
                     </div>
-                    <div class="dropdown show">
+                    <!--<div class="dropdown show">
                         <a class="btn btn-custom dropdown-toggle" href="#" role="button" data-toggle="dropdown"
                            aria-haspopup="true" aria-expanded="false">
                             دوره های آموزشی
@@ -46,7 +46,7 @@
                             <a class="dropdown-item" href="#">جدید</a>
                             <a class="dropdown-item" href="#">ویژه</a>
                         </div>
-                    </div>
+                    </div>-->
                 </div>
             </div>
         </div>
