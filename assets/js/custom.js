@@ -1,32 +1,59 @@
-jQuery(function($) {
+jQuery(document).ready(function ($) {
     "use strict";
 
 	//welcome message
-	jQuery(window).on('load', function() {
-		$.toast({
-			text:'<span style="font-size: 12px;">قالب در حال توسعه است و برخی از ویژگی‌های آن به طور کامل پیاده سازی نشده است!<br> <a title="مشاهده کدهای قالب در گیت‌هاب" class="toast-link" href="https://github.com/sadeq-yaqobi/siteyar-wp-theme"><span>مشاهده سورس‌کد قالب در گیت‌هاب <i class="fab fa-github"></i></span></a></span>' , // Text that is to be shown in the toast
-			heading: ' ', // Optional heading to be shown on the toast
-			icon: 'info', // Type of toast icon
-			showHideTransition: 'slide', // fade, slide or plain
-			allowToastClose: true, // Boolean value true or false
-			hideAfter: false, // false to make it sticky or number representing the miliseconds as time after which toast needs to be hidden
-			stack: false, // false if there should be only one toast at a time or a number representing the maximum number of toasts to be shown at a time
-			position: 'bottom-left', // bottom-left or bottom-right or bottom-center or top-left or top-right or top-center or mid-center or an object representing the left, right, top, bottom values
+	if (sy_theme_data.is_home) { //it defined in register assets
+		jQuery(window).on('load', function() {
+			$.toast({
+				text:'<span style="font-size: 12px;">تمامی اجزای این قالب وردپرس کدنویسی شده است و از هیچ پلاینی در آن استفاده نشده است.</span>' , // Text that is to be shown in the toast
+				heading: 'خوش آمدید.', // Optional heading to be shown on the toast
+				icon: 'info', // Type of toast icon
+				showHideTransition: 'slide', // fade, slide or plain
+				allowToastClose: true, // Boolean value true or false
+				hideAfter: false, // false to make it sticky or number representing the miliseconds as time after which toast needs to be hidden
+				stack: 5, // false if there should be only one toast at a time or a number representing the maximum number of toasts to be shown at a time
+				position: 'bottom-left', // bottom-left or bottom-right or bottom-center or top-left or top-right or top-center or mid-center or an object representing the left, right, top, bottom values
 
 
-			textAlign: 'right',  // Text alignment i.e. left, right or center
-			loader: true,  // Whether to show loader or not. True by default
-			loaderBg: '#9EC600',  // Background color of the toast loader
-			beforeShow: function () {
-			}, // will be triggered before the toast is shown
-			afterShown: function () {
-			}, // will be triggered after the toat has been shown
-			beforeHide: function () {
-			}, // will be triggered before the toast gets hidden
-			afterHidden: function () {
-			}  // will be triggered after the toast has been hidden
+				textAlign: 'right',  // Text alignment i.e. left, right or center
+				loader: true,  // Whether to show loader or not. True by default
+				loaderBg: '#9EC600',  // Background color of the toast loader
+				beforeShow: function () {
+				}, // will be triggered before the toast is shown
+				afterShown: function () {
+				}, // will be triggered after the toat has been shown
+				beforeHide: function () {
+				}, // will be triggered before the toast gets hidden
+				afterHidden: function () {
+					$.toast({
+						text:'<span style="font-size: 12px;"> قالب در حال توسعه بوده و برخی از ویژگی‌های آن به طور کامل پیاده سازی نشده است!<br> <a title="مشاهده کدهای قالب در گیت‌هاب" class="toast-link" href="https://github.com/sadeq-yaqobi/siteyar-wp-theme"><span>مشاهده سورس‌کد قالب در گیت‌هاب <i class="fab fa-github"></i></span></a></span>' , // Text that is to be shown in the toast
+						heading: ' ',
+						icon: 'info',
+						showHideTransition: 'slide',
+						allowToastClose: true,
+						hideAfter: false,
+						stack: 5,
+						position: 'bottom-left',
+
+
+						textAlign: 'right',
+						loader: true,
+						loaderBg: '#9EC600',
+						beforeShow: function () {
+						},
+						afterShown: function () {
+						},
+						beforeHide: function () {
+						},
+						afterHidden: function () {
+						}
+					});
+				}
+			});
+
 		});
-	});
+	}
+
 	//Loader	
 	jQuery(function preloaderLoad() {
         if(jQuery('.preloader').length){

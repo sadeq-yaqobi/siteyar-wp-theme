@@ -3,14 +3,14 @@
     <!--<h4 class="title">پرمخاطب</h4>
     <ul>
         <li>
-            <span class="left"><img src="<?php /*echo get_template_directory_uri() . '/assets/img/webp/blog-sm-01.webp' */?>"
+            <span class="left"><img loading="lazy" src="<?php /*echo get_template_directory_uri() . '/assets/img/webp/blog-sm-01.webp' */?>"
                                     alt="" class=""></span>
             <span class="right"><a class="feed-title" href="#">در الکامپ امسال چه خبر است؟</a><span class="post-date"><i
                             class="ti-calendar"></i>10دقیقه پیش</span></span>
         </li>
         <li>
 										<span class="left">
-											<img src="<?php /*echo get_template_directory_uri() . '/assets/img/webp/blog-sm-02.webp' */?>"
+											<img loading="lazy" src="<?php /*echo get_template_directory_uri() . '/assets/img/webp/blog-sm-02.webp' */?>"
                                                  alt="" class="">
 										</span>
             <span class="right">
@@ -20,7 +20,7 @@
         </li>
         <li>
 										<span class="left">
-											<img src="<?php /*echo get_template_directory_uri() . '/assets/img/webp/blog-sm-03.webp' */?>"
+											<img loading="lazy" src="<?php /*echo get_template_directory_uri() . '/assets/img/webp/blog-sm-03.webp' */?>"
                                                  alt="" class="">
 										</span>
             <span class="right">
@@ -30,7 +30,7 @@
         </li>
         <li>
 										<span class="left">
-											<img src="<?php /*echo get_template_directory_uri() . '/assets/img/webp/blog-sm-01.webp' */?>"
+											<img loading="lazy" src="<?php /*echo get_template_directory_uri() . '/assets/img/webp/blog-sm-01.webp' */?>"
                                                  alt="" class="">
 										</span>
             <span class="right">
@@ -40,7 +40,7 @@
         </li>
         <li>
 										<span class="left">
-											<img src="<?php /*echo get_template_directory_uri() . '/assets/img/webp/blog-sm-02.webp' */?>"
+											<img loading="lazy" src="<?php /*echo get_template_directory_uri() . '/assets/img/webp/blog-sm-02.webp' */?>"
                                                  alt="" class="">
 										</span>
             <span class="right">

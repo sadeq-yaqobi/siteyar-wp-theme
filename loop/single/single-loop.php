@@ -6,11 +6,7 @@
         <div class="article_detail_wrapss single_article_wrap format-standard">
             <div class="article_body_wrap">
                 <div class="article_featured_image">
-                    <?php if (has_post_thumbnail()) {
-                        the_post_thumbnail('', ['class' => 'img-responsive', 'alt' => get_the_title()]);
-                    } else {
-                        echo sy_default_post_thumbnail();
-                    } ?>
+                    <?php echo sy_post_thumbnail('img-responsive')?>
                 </div>
                 <?php get_template_part('meta-data/single/post-meta-top', 'post-meta-top') ?>
                 <div class="main-content">

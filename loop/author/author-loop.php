@@ -103,7 +103,7 @@
                             <div class="details_single p-2">
                                 <ul class="skills_info">
                                     <?php $user_resume = get_user_meta(get_query_var('author_id'), '_sy_user_resume', true);
-
+                                    if ($user_resume):
                                     $user_careers = explode('**', $user_resume);
                                     foreach ($user_careers as $user_career):
                                         $user_career_parts = explode('|', $user_career);
@@ -118,6 +118,9 @@
                                             </div>
                                         </li>
                                     <?php endforeach; ?>
+                                    <?php else:?>
+                                    <span class="alert alert-warning">هنوز مطلبی درباره نویسنده قرار داده نشده است.</span>
+                                    <?php endif?>
                                 </ul>
                             </div>
                         </div>
@@ -140,7 +143,7 @@
                                     <?php foreach ($the_comments as $the_comment): ?>
                                         <div class="reviews-comments-item">
                                             <div class="review-comments-avatar">
-                                                <?php echo sy_author_avatar($the_comment->comment_author_email, 80,  $the_comment->comment_author) ?>
+                                                <?php echo sy_author_avatar($the_comment->comment_author_email, 80, $the_comment->comment_author) ?>
                                             </div>
                                             <div class="reviews-comments-item-text">
                                                 <h5>

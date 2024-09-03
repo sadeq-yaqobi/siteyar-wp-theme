@@ -5,12 +5,12 @@
             <div class="row">
                 <div class="col-lg-3 col-md-3">
                     <div class="footer-widget">
-                        <img src="<?php echo get_template_directory_uri() . '/assets/img/webp' . (is_front_page() ? 'logo.webp' : 'logo-light.webp') ?>"
+                        <img loading="lazy" src="<?php echo get_template_directory_uri() . '/assets/img/webp/' . (is_front_page() ? 'logo-dark.webp' : 'logo-light.webp') ?>"
                              class="img-footer" alt=""/>
                         <div class="footer-add">
-                            <p>تهران، خیابان سعادت آباد، خیابان کاج</p>
-                            <p>+1 246-345-0695</p>
-                            <p>info@learnup.com</p>
+                            <p>تهران، سعادت آباد، میدان صنعت</p>
+                            <p><a href="tel:09385741520">09385742520</a></p>
+                            <p>info@siteyar.net</p>
                         </div>
 
                     </div>
@@ -22,7 +22,7 @@
                             <li><a href="about-us.html">درباره ما</a></li>
                             <li><a href="faq.html">سوالات متداول</a></li>
                             <li><a href="checkout.html">تسویه حساب</a></li>
-                            <li><a href="contact.html">تماس با ما</a></li>
+                            <li><a href="<?php echo get_permalink(get_page_by_path('contact')->ID); ?>">تماس با ما</a></li>
                             <li><a href="blog.html">وبلاگ</a></li>
                         </ul>
                     </div>
@@ -91,7 +91,7 @@
             <div class="row align-items-center">
 
                 <div class="col-lg-6 col-md-6">
-                    <p class="mb-0">© 2022 LearnUp ارائه شده توسط <a href="#">راست چین</a></p>
+                    <p class="mb-0">© 2024 siteyar ارائه شده توسط <a href="#">سایت یار</a></p>
                 </div>
 
                 <div class="col-lg-6 col-md-6 text-left">

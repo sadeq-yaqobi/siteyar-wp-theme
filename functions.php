@@ -97,13 +97,13 @@ include_once 'partials/contact/contact-ajax.php';
 // configuration to send email
 include_once '_inc/send-mail/send-mail-config.php';
 
+// restrict rest api accessibility
+include_once '_inc/security/rest-api.php';
 
-add_filter('use_block_editor_for_post', '__return_false');
-add_filter('use_widgets_block_editor', '__return_false');
 
 
-add_filter( 'upload_mimes', 'filter_allowed_mimes_for_avif');
-function filter_allowed_mimes_for_avif( $mime_types ) {
-    $mime_types['avif'] = 'image/avif';
-    return $mime_types;
-}
+
+
+
+
+
