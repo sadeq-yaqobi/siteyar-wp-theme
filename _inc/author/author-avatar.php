@@ -9,7 +9,7 @@ function sy_author_avatar($id_or_email, $size, $alt,$class='')
 {
 //    $default_avatar_url = site_url('/assets/img/webp/avatar-man-01.webp'); // URL to your custom default avatar
 //    $avatar = get_avatar($id_or_email, $size, $default_avatar_url, $alt);
-    $avatar = get_avatar($id_or_email, $size, '', $alt,['class'=>$class]);
+    $avatar = get_avatar($id_or_email, $size, '', $alt,['class'=>$class, 'loading'=>'lazy']);
     if (!$avatar) {
         return sy_default_author_avatar($alt,$size);
     }

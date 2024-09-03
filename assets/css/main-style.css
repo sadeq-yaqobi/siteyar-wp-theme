@@ -1812,6 +1812,10 @@ a.btn-trans-video i {
     border-color: #da0b4e;
     color: #ffffff;
     transition: all ease 0.4s;
+    border-radius: 5px;
+}
+.btn-theme:hover {
+    color: #ffffff!important;
 }
 
 .btn-theme-2 {

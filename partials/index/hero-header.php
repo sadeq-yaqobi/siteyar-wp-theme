@@ -18,7 +18,7 @@
                                         <div class="input-with-icon">
                                             <form action="<?php bloginfo('url'); ?>" method="get">
                                             <input type="text" name="s" class="form-control" placeholder="جستجو ..."/>
-                                            <img src="<?php echo get_template_directory_uri() . '/assets/img/search.svg' ?>"
+                                            <img loading="lazy" src="<?php echo get_template_directory_uri() . '/assets/img/search.svg' ?>"
                                                  class="search-icon" alt=""/>
 
                                         </div>

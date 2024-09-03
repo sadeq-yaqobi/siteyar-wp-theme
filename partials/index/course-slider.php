@@ -21,7 +21,7 @@
                     <div class="singles_items">
                         <div class="education_block_grid style_2">
                             <div class="education_block_thumb n-shadow">
-                                <a href="course-detail.html"><img src="<?php echo get_template_directory_uri().'/assets/img/webp/co-1.webp'?>" class="img-fluid" alt=""></a>
+                                <a href="course-detail.html"><img loading="lazy" src="<?php echo get_template_directory_uri().'/assets/img/webp/co-1.webp'?>" class="img-fluid" alt=""></a>
                                 <div class="cources_price bg-warning text-white">VIP</div>
                             </div>
 
@@ -39,7 +39,7 @@
 
                             <div class="education_block_footer">
                                 <div class="education_block_author">
-                                    <div class="path-img"><a href="instructor-detail.html"><img src="<?php echo get_template_directory_uri().'/assets/img/webp/user-1.webp'?>" class="img-fluid" alt=""></a></div>
+                                    <div class="path-img"><a href="instructor-detail.html"><img loading="lazy" src="<?php echo get_template_directory_uri().'/assets/img/webp/user-1.webp'?>" class="img-fluid" alt=""></a></div>
                                     <h5><a href="instructor-detail.html">رابرت ویلسون</a></h5>
                                 </div>
                                 <div class="foot_lecture"><i class="ti-control-skip-forward ml-2"></i>54 دوره آموزشی</div>
@@ -51,7 +51,7 @@
                     <div class="singles_items">
                         <div class="education_block_grid style_2">
                             <div class="education_block_thumb n-shadow">
-                                <a href="course-detail.html"><img src="<?php echo get_template_directory_uri().'/assets/img/webp/co-2.webp'?>" class="img-fluid" alt=""></a>
+                                <a href="course-detail.html"><img loading="lazy" src="<?php echo get_template_directory_uri().'/assets/img/webp/co-2.webp'?>" class="img-fluid" alt=""></a>
                                 <div class="cources_price">289 ت</div>
                             </div>
 
@@ -69,7 +69,7 @@
 
                             <div class="education_block_footer">
                                 <div class="education_block_author">
-                                    <div class="path-img"><a href="instructor-detail.html"><img src="<?php echo get_template_directory_uri().'/assets/img/webp/user-2.webp'?>" class="img-fluid" alt=""></a></div>
+                                    <div class="path-img"><a href="instructor-detail.html"><img loading="lazy" src="<?php echo get_template_directory_uri().'/assets/img/webp/user-2.webp'?>" class="img-fluid" alt=""></a></div>
                                     <h5><a href="instructor-detail.html">شروتی حسن</a></h5>
                                 </div>
                                 <div class="foot_lecture"><i class="ti-control-skip-forward ml-2"></i>26 دوره آموزشی</div>
@@ -81,7 +81,7 @@
                     <div class="singles_items">
                         <div class="education_block_grid style_2">
                             <div class="education_block_thumb n-shadow">
-                                <a href="course-detail.html"><img src="<?php echo get_template_directory_uri().'/assets/img/webp/co-3.webp'?>" class="img-fluid" alt=""></a>
+                                <a href="course-detail.html"><img loading="lazy" src="<?php echo get_template_directory_uri().'/assets/img/webp/co-3.webp'?>" class="img-fluid" alt=""></a>
                                 <div class="cources_price bg-warning text-white">VIP</div>
                             </div>
 
@@ -99,7 +99,7 @@
 
                             <div class="education_block_footer">
                                 <div class="education_block_author">
-                                    <div class="path-img"><a href="instructor-detail.html"><img src="<?php echo get_template_directory_uri().'/assets/img/webp/user-3.webp'?>" class="img-fluid" alt=""></a></div>
+                                    <div class="path-img"><a href="instructor-detail.html"><img loading="lazy" src="<?php echo get_template_directory_uri().'/assets/img/webp/user-3.webp'?>" class="img-fluid" alt=""></a></div>
                                     <h5><a href="instructor-detail.html">آدام ویکنوی</a></h5>
                                 </div>
                                 <div class="foot_lecture"><i class="ti-control-skip-forward ml-2"></i>52 دوره آموزشی</div>
@@ -111,7 +111,7 @@
                     <div class="singles_items">
                         <div class="education_block_grid style_2">
                             <div class="education_block_thumb n-shadow">
-                                <a href="course-detail.html"><img src="<?php echo get_template_directory_uri().'/assets/img/webp/co-4.webp'?>" class="img-fluid" alt=""></a>
+                                <a href="course-detail.html"><img loading="lazy" src="<?php echo get_template_directory_uri().'/assets/img/webp/co-4.webp'?>" class="img-fluid" alt=""></a>
                                 <div class="cources_price">365 ت</div>
                             </div>
 
@@ -129,7 +129,7 @@
 
                             <div class="education_block_footer">
                                 <div class="education_block_author">
-                                    <div class="path-img"><a href="instructor-detail.html"><img src="<?php echo get_template_directory_uri().'/assets/img/webp/user-4.webp'?>" class="img-fluid" alt=""></a></div>
+                                    <div class="path-img"><a href="instructor-detail.html"><img loading="lazy" src="<?php echo get_template_directory_uri().'/assets/img/webp/user-4.webp'?>" class="img-fluid" alt=""></a></div>
                                     <h5><a href="instructor-detail.html">نازنین عبدی</a></h5>
                                 </div>
                                 <div class="foot_lecture"><i class="ti-control-skip-forward ml-2"></i>43 دوره آموزشی</div>
@@ -141,7 +141,7 @@
                     <div class="singles_items">
                         <div class="education_block_grid style_2">
                             <div class="education_block_thumb n-shadow">
-                                <a href="course-detail.html"><img src="<?php echo get_template_directory_uri().'/assets/img/webp/co-5.webp'?>" class="img-fluid" alt=""></a>
+                                <a href="course-detail.html"><img loading="lazy" src="<?php echo get_template_directory_uri().'/assets/img/webp/co-5.webp'?>" class="img-fluid" alt=""></a>
                                 <div class="cources_price">450 ت</div>
                             </div>
 
@@ -159,7 +159,7 @@
 
                             <div class="education_block_footer">
                                 <div class="education_block_author">
-                                    <div class="path-img"><a href="instructor-detail.html"><img src="<?php echo get_template_directory_uri().'/assets/img/webp/user-5.webp'?>" class="img-fluid" alt=""></a></div>
+                                    <div class="path-img"><a href="instructor-detail.html"><img loading="lazy" src="<?php echo get_template_directory_uri().'/assets/img/webp/user-5.webp'?>" class="img-fluid" alt=""></a></div>
                                     <h5><a href="instructor-detail.html">شاوریا پریت</a></h5>
                                 </div>
                                 <div class="foot_lecture"><i class="ti-control-skip-forward ml-2"></i>32 دوره آموزشی</div>
@@ -171,7 +171,7 @@
                     <div class="singles_items">
                         <div class="education_block_grid style_2">
                             <div class="education_block_thumb n-shadow">
-                                <a href="course-detail.html"><img src="<?php echo get_template_directory_uri().'/assets/img/webp/co-6.webp'?>" class="img-fluid" alt=""></a>
+                                <a href="course-detail.html"><img loading="lazy" src="<?php echo get_template_directory_uri().'/assets/img/webp/co-6.webp'?>" class="img-fluid" alt=""></a>
                                 <div class="cources_price bg-warning text-white">VIP</div>
                             </div>
 
@@ -189,7 +189,7 @@
 
                             <div class="education_block_footer">
                                 <div class="education_block_author">
-                                    <div class="path-img"><a href="instructor-detail.html"><img src="<?php echo get_template_directory_uri().'/assets/img/webp/user-6.webp'?>" class="img-fluid" alt=""></a></div>
+                                    <div class="path-img"><a href="instructor-detail.html"><img loading="lazy" src="<?php echo get_template_directory_uri().'/assets/img/webp/user-6.webp'?>" class="img-fluid" alt=""></a></div>
                                     <h5><a href="instructor-detail.html">الهام کریمی</a></h5>
                                 </div>
                                 <div class="foot_lecture"><i class="ti-control-skip-forward ml-2"></i>48 دوره آموزشی</div>
@@ -200,7 +200,7 @@
                     <div class="singles_items">
                         <div class="education_block_grid style_2">
                             <div class="education_block_thumb n-shadow">
-                                <a href="course-detail.html"><img src="<?php echo get_template_directory_uri().'/assets/img/webp/co-7.webp'?>" class="img-fluid" alt=""></a>
+                                <a href="course-detail.html"><img loading="lazy" src="<?php echo get_template_directory_uri().'/assets/img/webp/co-7.webp'?>" class="img-fluid" alt=""></a>
                                 <div class="cources_price">560 ت</div>
                             </div>
 
@@ -218,7 +218,7 @@
 
                             <div class="education_block_footer">
                                 <div class="education_block_author">
-                                    <div class="path-img"><a href="instructor-detail.html"><img src="<?php echo get_template_directory_uri().'/assets/img/webp/user-7.webp'?>" class="img-fluid" alt=""></a></div>
+                                    <div class="path-img"><a href="instructor-detail.html"><img loading="lazy" src="<?php echo get_template_directory_uri().'/assets/img/webp/user-7.webp'?>" class="img-fluid" alt=""></a></div>
                                     <h5><a href="instructor-detail.html">جاسویندر بهارتیا</a></h5>
                                 </div>
                                 <div class="foot_lecture"><i class="ti-control-skip-forward ml-2"></i>42 دوره آموزشی</div>
