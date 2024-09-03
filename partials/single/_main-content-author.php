@@ -4,7 +4,7 @@
     <div class="article_posts_thumb">
 <!--        <span class="img"><span class="img-fluid">--><?php //echo get_avatar(get_the_author_meta('email'),120, '','') ?><!--</span></span>-->
         <span class="img img-fluid"><?php echo sy_author_avatar(get_the_author_meta('email'),120,get_the_author_meta('display_name'))?></span>
-        <h3 class="pa-name"><?php echo get_the_author_meta('display_name')?></h3>
+        <h3 class="pa-name"><a href="<?php echo esc_url(get_author_posts_url(get_the_author_meta('ID')));?>"><?php echo get_the_author_meta('display_name')?></a></h3>
         <ul class="social-links">
             <?php echo get_the_author_meta('facebook') ? '<li><a href="' . get_the_author_meta('facebook') . '"><i class="fab fa-facebook-f"></i></a></li>
             ' : '' ?>

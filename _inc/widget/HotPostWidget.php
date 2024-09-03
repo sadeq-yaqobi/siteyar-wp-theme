@@ -46,13 +46,7 @@ class HotPostWidget extends WP_Widget
             while ($hot_posts->have_posts()):$hot_posts->the_post(); ?>
                 <li>
                     <span class="left">
-                        <?php
-                        if (has_post_thumbnail()) {
-                            the_post_thumbnail('', ['class' => 'img-responsive', 'alt' => get_the_title()]);
-                        } else {
-                            echo sy_default_post_thumbnail();
-                        }
-                        ?>
+                        <?php echo sy_post_thumbnail('img-responsive')?>
                     </span>
                     <span class="right"><a class="feed-title" href="<?php the_permalink(); ?>"><?php the_title() ?></a><span class="post-date"><i class="ti-calendar"></i><?php echo TimeModify::time_ago($hot_posts->post->post_date);?></span></span>
                 </li>

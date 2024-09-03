@@ -1,4 +1,5 @@
 <?php
+add_action('after_setup_theme', 'theme_setup');
 function theme_setup()
 {
     date_default_timezone_set('Asia/Tehran');
@@ -22,5 +23,14 @@ function theme_setup()
     require_once get_template_directory() . '/class/nav-walker/WP_Bootstrap_Navwalker.php';
 }
 
-add_action('after_setup_theme', 'theme_setup');
+//set classic WordPress editor
+add_filter('use_block_editor_for_post', '__return_false');
+add_filter('use_widgets_block_editor', '__return_false');
+
+// set specific extension for image
+add_filter( 'upload_mimes', 'filter_allowed_mimes_for_avif');
+function filter_allowed_mimes_for_avif( $mime_types ) {
+    $mime_types['avif'] = 'image/avif';
+    return $mime_types;
+}
 
