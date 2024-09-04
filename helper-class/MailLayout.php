@@ -1,11 +1,5 @@
 <?php
-
-class MailLayout
-{
-    public static function contact_layout(string $full_name, string $email, string $title, string $message): string
-    {
-        // Define the email layout
-        return '
+ class MailLayout { public static function contact_layout(string $full_name, string $email, string $title, string $message): string { return '
         <!DOCTYPE html>
 <html lang="fa">
 <head>
@@ -127,6 +121,4 @@ class MailLayout
     </div>
 </body>
 </html>
-        ';
-    }
-}
+        '; } }

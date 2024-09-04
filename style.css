@@ -16,4 +16,4 @@ This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
 */
 /*importing minified style*/
-@import url(assets/css/main-style.purged.min.css);
+@import url(assets/css/main-style.min.css);

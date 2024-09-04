@@ -1,5 +1,1 @@
-<?php get_header();?>
-<?php get_template_part('partials/nav/nav','nav')?>
-<?php get_template_part('partials/author/author-title', 'author-title') ?>
-<?php get_template_part('loop/author/author-loop', 'author-loop') ?>
-<?php get_footer();?>
+<?php get_header(); get_template_part('partials/nav/nav','nav'); get_template_part('partials/author/author-title', 'author-title'); get_template_part('loop/author/author-loop', 'author-loop'); get_footer();

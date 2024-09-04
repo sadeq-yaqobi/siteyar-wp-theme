@@ -1,16 +1,5 @@
 <?php
-// Add action hooks to display and update custom user meta field when showing user profile and editing it
-add_action('show_user_profile', 'sy_user_meta_resume_field');
-add_action('edit_user_profile', 'sy_user_meta_resume_field');
-
-// Add action hooks to update custom user meta field when editing user profile
-add_action('edit_user_profile_update', 'sy_user_meta_resume_field_update');
-add_action('personal_options_update', 'sy_user_meta_resume_field_update');
-
-// Function to display the custom user meta field
-function sy_user_meta_resume_field($user)
-{
-    ?>
+ add_action('show_user_profile', 'sy_user_meta_resume_field'); add_action('edit_user_profile', 'sy_user_meta_resume_field'); add_action('edit_user_profile_update', 'sy_user_meta_resume_field_update'); add_action('personal_options_update', 'sy_user_meta_resume_field_update'); function sy_user_meta_resume_field($user) { ?>
     <!-- Heading for the custom user meta field -->
     <h3>سابقه تحصیل و کار</h3>
     <table class="form-table">
@@ -52,12 +41,4 @@ function sy_user_meta_resume_field($user)
         </tr>
     </table>
     <?php
-}
-
-// Function to update the custom user meta field
-function sy_user_meta_resume_field_update($user_id)
-{
-    // Update the user meta with the new skill data submitted via POST
-    update_user_meta($user_id, '_sy_user_expertise', $_POST['expertise']);
-    update_user_meta($user_id, '_sy_user_resume', $_POST['user_resume']);
-}
+} function sy_user_meta_resume_field_update($user_id) { update_user_meta($user_id, '_sy_user_expertise', $_POST['expertise']); update_user_meta($user_id, '_sy_user_resume', $_POST['user_resume']); } 

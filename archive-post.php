@@ -1,7 +1,1 @@
-<?php /* Template Name: آرشیو مطالب آموزشی */ ?>
-<?php get_header()?>
-<?php get_template_part('partials/nav/nav','nav')?>
-<?php get_template_part('partials/archive/title','title')?>
-<?php get_template_part('partials/archive/sidebar-search','sidebar-search')?>
-<?php get_template_part('partials/archive/archive-content','archive-content')?>
-<?php get_footer()?>
+<?php /* Template Name: آرشیو مطالب آموزشی */ ?> <?php get_header(); get_template_part('partials/nav/nav','nav'); get_template_part('partials/archive/title','title'); get_template_part('partials/archive/sidebar-search','sidebar-search'); get_template_part('partials/archive/archive-content','archive-content'); get_footer();

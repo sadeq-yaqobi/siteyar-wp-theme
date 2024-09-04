@@ -1,8 +1,1 @@
-<?php get_header();?>
-<?php get_template_part('partials/nav/nav','nav')?>
-<?php get_template_part('partials/single/title','title')?>
-<?php get_template_part('partials/single/start-layout','start-layout')?>
-<?php get_template_part('partials/single/main-content','main-content')?>
-<?php get_sidebar();?>
-<?php get_template_part('partials/single/end-layout','end-layout')?>
-<?php get_footer();?>
+<?php get_header(); get_template_part('partials/nav/nav','nav'); get_template_part('partials/single/title','title'); get_template_part('partials/single/start-layout','start-layout'); get_template_part('partials/single/main-content','main-content'); get_sidebar(); get_template_part('partials/single/end-layout','end-layout'); get_footer();

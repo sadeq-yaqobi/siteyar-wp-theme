@@ -1,5 +1,1 @@
-<?php get_header();?>
-<?php get_template_part('partials/nav/nav','nav')?>
-<?php get_template_part('partials/tag/tag-title', 'tag-title') ?>
-<?php get_template_part('loop/tag/tag-loop', 'tag-loop') ?>
-<?php get_footer();?>
+<?php get_header(); get_template_part('partials/nav/nav','nav'); get_template_part('partials/tag/tag-title', 'tag-title'); get_template_part('loop/tag/tag-loop', 'tag-loop'); get_footer();

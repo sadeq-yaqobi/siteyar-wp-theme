@@ -1,7 +1,5 @@
 <?php
-function sy_tech_html_output(): string
-{
-    return ' 
+function sy_tech_html_output(): string { return ' 
         <div class="col-lg-4 col-md-4 col-sm-12">
                 <div class="articles_grid_style">
                     <div class="articles_grid_thumb">
@@ -20,5 +18,4 @@ function sy_tech_html_output(): string
                     </div>
                 </div>
             </div>
-            ';
-}
+            '; }
