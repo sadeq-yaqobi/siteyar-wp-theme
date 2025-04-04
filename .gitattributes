@@ -1,5 +1,2 @@
 # Force GitHub to recognize this as a PHP project
-*.css linguist-vendored
-*.js linguist-vendored
-*.html linguist-vendored
 *.scss linguist-vendored
